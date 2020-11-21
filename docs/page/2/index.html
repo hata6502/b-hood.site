@@ -1,301 +1,49 @@
-<!DOCTYPE html>
-<html lang="en" dir="auto">
-
-<head><meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name=" robots" content="noindex, nofollow">
-<title>hata6502 Tech Blog</title>
-
-<meta name="keywords" content="" />
-<meta name="description" content="">
-<meta name="author" content="">
-<link rel="canonical" href="https://b-hood.site/" />
-<link href="https://b-hood.site/assets/css/stylesheet.min.08d6f2005b6ce4ed10207916c0411c66e66f2201e3f7a56e8fb2ccbc4a8b259c.css" integrity="sha256-CNbyAFts5O0QIHkWwEEcZuZvIgHj96Vuj7LMvEqLJZw=" rel="preload stylesheet"
-    as="style">
-
-<link rel="icon" href="https://b-hood.site/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="https://b-hood.site/favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="https://b-hood.site/favicon-32x32.png">
-<link rel="apple-touch-icon" href="https://b-hood.site/apple-touch-icon.png">
-<link rel="mask-icon" href="https://b-hood.site/safari-pinned-tab.svg">
-<meta name="theme-color" content="#2e2e33">
-<meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.78.2" />
-<link rel="alternate" type="application/rss&#43;xml" href="https://b-hood.site/index.xml">
-
-
-
-
-</head>
-
-<body class="list home" id="top">
-<script>
-    if (localStorage.getItem("pref-theme") === "dark") {
-        document.body.classList.add('dark');
-    } else if (localStorage.getItem("pref-theme") === "light") {
-        document.body.classList.remove('dark')
-    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark');
-    }
-
-</script>
-<noscript>
-    <style type="text/css">
-        .theme-toggle,
-        .top-link {
-            display: none;
-        }
-
-    </style>
-</noscript>
-<header class="header">
-    <nav class="nav">
-        <div class="logo">
-            <a href="https://b-hood.site/" accesskey="h">hata6502 Tech Blog</a>
-            <span class="logo-switches">
-                <span class="theme-toggle">
-                    <a id="theme-toggle" accesskey="t">
-                        <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                        </svg>
-                        <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                            stroke-linejoin="round">
-                            <circle cx="12" cy="12" r="5"></circle>
-                            <line x1="12" y1="1" x2="12" y2="3"></line>
-                            <line x1="12" y1="21" x2="12" y2="23"></line>
-                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                            <line x1="1" y1="12" x2="3" y2="12"></line>
-                            <line x1="21" y1="12" x2="23" y2="12"></line>
-                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                        </svg>
-                    </a>
-                </span>
-                
-            </span>
-        </div>
-        <ul class="menu" id="menu" onscroll="menu_on_scroll()"></ul>
-    </nav>
-</header>
-
-    <main class="main"> 
-
-
-
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      【アーカイブ】ふせんプログラミング
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>物の整理をしていたらおもしろい資料が出てきたので公開します。
-&lt;ins class=“adsbygoogle” style=“display:block&#34;ｌｓ data-ad-client=“ca-pub-7008780049786244” data-ad-slot=“5063315418” data-ad-format=“auto” data-full-width-responsive=“true”&gt;ふせんプログラミングによるバイナリエディタのプログラム。 確か Z80 か 8080 だったような。...</p>
-  </section>
-  <footer class="entry-footer">
-</footer>
-  <a class="entry-link" aria-label="post link to 【アーカイブ】ふせんプログラミング" href="https://b-hood.site/articles/postit-program/"></a>
-</article>
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      【アーカイブ】シェルで lastmod changefreq 付きの sitemap.xml を作る
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>こんにちは、今回は内容の濃い記事が書けそうでワクワクしています😀　このサイトでは、PHP を使わず静的な html でコンテンツを配信しています。 せっかく作っている Web サイト、この存在をクローラに気づかせるためには sitemap.xml の設置が重要となります。 今回は、sitemap.xml を自動的かつ**こだわりをもって(?)**生成する方法を紹介します。
-このサイトの sitemap.xml2019/05/04 sitemap.xml を生成するコマンドを作りました！GitHub
-sitemap.xml の構造 sitemap.xml は、そのサイトのサイトマップを表す xml ファイルです。 一般的にドキュメントルートに設置して、robots.txt で sitemap.xml の場所を指定します。
-robots.txt の例
-sitemap.xml はさらに別の xml ファイルに分割することもできるのですが、 1 ファイルにすべてのページの情報を書き込むとするとこのような形式になります。
-url タグで 1 ページ分の情報として列記していきます。 url タグ内の情報を以下のようにまとめました。
- loc: ページの URL(必須） lastmod: ページの最終更新日時（任意） changefreq: ページの更新頻度（任意、hourly, daily, weekly, monthly, yearly など） (priority): そのページの重要度（任意、今回は省略）  最低限の sitemap.xml を作るのであれば、loc だけを書いて簡易的に済ませることもできます。 しかし、できれば lastmod と changefreq も書いてサイトの情報を詳しく伝えたいところです。 ちなみに priority はページの重要度を 0.0〜1.0 の範囲内で指定できるのですが、Google はこの値を無視しているそうです。 まあ、私としても priority は主観的であいまいなデータですし、あまりあてにならないかなと思います。 もちろん全部のページを priority=1....</p>
-  </section>
-  <footer class="entry-footer">
-</footer>
-  <a class="entry-link" aria-label="post link to 【アーカイブ】シェルで lastmod changefreq 付きの sitemap.xml を作る" href="https://b-hood.site/articles/sitemap/"></a>
-</article>
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      【アーカイブ】マイコンを使わないアナログ式電子オルゴールを作った
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>皆さんこんにちは。 今回は、私が 1 年がかりで作った「アナログ式電子オルゴール」の紹介をしたいと思います。
-動作風景 ※音量小さいです。
-元ネタはピアノロール 私が中学生のころ、クラシックなミッキーマウスのアニメーションを見るのが好きだったのですが、そこにピアノロール が出ていました。これは、ピアノの演奏情報を時系列的に記録した紙媒体であり、穴が空いているところに対応する鍵盤が自動的に押されるしくみのようです。
-これをもとに、幅 40 mm の紙テープで演奏データを記録することにしました。 本家のピアノロールは、鍵盤 1 つずつに 1 ライン使うため非常に幅の広い紙テープが必要になります。 そこで、音階（ドレミファソラシドと#）を 4 ビット、オクターブを 3 ビット、ノートオン／オフを 1 ビットの合計 8 ビットで表現しています。
-回路図 画像形式と .CE3 形式で配布します。 .CE3 を BSch3V で開けば高解像で確認できるためお勧めします。 なお、パスコンなどのノイズ対策や電源の振動対策を行っておらず、自己責任にてお願いします。
-電源 15V の AC アダプタからレールスプリッタで ±7.5V 電源を生成、プッシュプルで大電流対応。 そのほか、NJM4580DD オペアンプの動作電圧を作ったり、デジタル用&#43;5V を三端子レギュレータで作っています。
- CE3 ファイル  紙テープ巻取回路 紙テープを一定の速度で巻き取ります。 モータの速度をフィードバックで制御していますが、なんと速度センサもまたモータ。 紙テープにローラーを当ててモータの軸を回し、微弱な起電圧を 300 倍に増幅します。 そして、半固定抵抗によって定めた基準電圧とコンパレータによって比較し、 紙テープを巻き取るモータをオン／オフします。 モータは激しいノイズ源になりそうですので、3V 電池を使って電源を隔離しています。
- CE3 ファイル  紙テープ読取回路 黒を 1、白を 0 のデジタル信号として、8 ビット幅の紙テープをフォトリフレクタで読み取ります。 1 ビットはノートオン信号として、これが Hi のときに残りの 7 ビットを読み取るようにします。...</p>
-  </section>
-  <footer class="entry-footer">
-</footer>
-  <a class="entry-link" aria-label="post link to 【アーカイブ】マイコンを使わないアナログ式電子オルゴールを作った" href="https://b-hood.site/articles/analog-orgel/"></a>
-</article>
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      【アーカイブ】リーダブルコードが強迫観念になりつつあること
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>みなさんこんにちは 😁 今回は「リーダブルコード」に対する懐疑的な意見を述べたいと思います。
-10 年前の自分をコードレビュー まずは、私が 10 年前、中学生のころに作ったブロック崩しのプログラムを紹介したいと思います。 言語は HSP (Hot Soup Processor) というものでして、とても初心者向けの言語です。 BASIC に似た言語ともいえます。
-プログラムのファイル名は 本当のブロック崩し.hsp（笑） 当時ブロック崩しを作るのに一度挫折したため、ブロック崩し.hsp には違うプログラムが入っていました。 そして 2 回目でブロック崩しのプログラミングに成功したので、本当のブロック崩し.hsp と名付けたのです（笑笑）
-そのプログラムがこちらです。コードレビューしていきたいと思います。
-😂🤣😅🙄😥
-レビューしてたらきりが無さそうですが、ツッコミどころを頑張って 3 つに絞り込んでみました。
-ローマ字を使っている ところどころにローマ字があります。 たとえば、「shoki」は初期化処理のことです。 「oto1.wav」は効果音 1 の音声ファイルですね。 「atari」は、ボールとブロックが当たったときの処理のことです、まるでゲーム会社を彷彿させるネーミングです。
-もちろん、こんなネーミングはダメです。 ちゃんと英語を使いましょう、「brock.bmp」のように。 これはブロックの画像ファイルです、brock、block?…… まあ、中学生だし英語のスペルミスは許してね。
-変数名は 1 文字 プログラムを難読化させている大きな原因の 1 つですね。 変数名は m=0, c=0, w=1 のように 1 文字です。
-変数 x, y がボールの座標だと思うでしょう？ 実は、変数 a, b がボールの座標です。 それでは x=150 と初期化している変数 x は何に使用しているかというと……未使用です。 つまり、初期化しているのに一切使用していません（笑）
-そのほか、スコアを記憶する変数が c（s ではない）など、初期の BASIC っぽいですね。 確か BASIC は変数名 2 文字までという制約がありませんでしたっけ？...</p>
-  </section>
-  <footer class="entry-footer">
-</footer>
-  <a class="entry-link" aria-label="post link to 【アーカイブ】リーダブルコードが強迫観念になりつつあること" href="https://b-hood.site/articles/readable-code/"></a>
-</article>
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      【アーカイブ】大規模な作業のときは「付箋スタック」を積む
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>皆さんこんにちは。 今回は番外的な記事として、私個人で編み出した仕事術ふせんスタックについて紹介したいと思います（笑） おもしろ半分で読んでいただけると幸いです。
-人間には把握の限界がある まず最初に、人間には把握の限界があることを前提とします。 というのは、人間のワーキングメモリはコンピュータのように数 GB あるわけではなく、たいてい数単語分しかないということです。 参考文献 によると、人間のワーキングメモリは 7±2 チャンクの範囲だと言われています。 仕事などで大規模な作業を行うのに対して、短期記憶の使用は避けるべきだと言えます。
-作業の影響は連鎖していく 当然のことではありますが、作業を行うとその影響を対応するために新しい作業が生まれていくことがあります。 たとえば、新しい元号へ対応するためにAというシステムを改修した場合、Aを利用しているシステムB、C、Dも改修が必要になり、さらに……という連鎖が発生します。 このとき、見通しが浅く「平成の 2 文字を令和に置き換えるだけ」程度に考えてしまうと、その作業量の大きさに気付くことができません。
-作業漏れを起こさないコンピュータの構造 これも当然ですが、コンピュータは指示された命令通りに漏れを起こすことなく作業を遂行しますね。 コンピュータが処理を漏れなく行う記憶構造として、**スタック**があります。 これはコンピュータが現在何の処理をしているか、この処理が終わったら次は何をするか、といったプログラムの実行ステータスを記憶するためにも使われています。 これに似たような方法を取り入れれば、機械的ながらも作業漏れを減らすことができるのではないでしょうか？
-ふせんスタック それではふせんスタックの方法を例をまじえながら紹介します。 まず、作業ステータスを記録するためにふせんを使います。 ふせんに今回のタスク例として「平成 → 令和移行」と書きます。 そして、これから行うタスク「平成 → 令和移行」に「←」マークを付けます。
-次に、「平成 → 令和移行」のタスクを完了するにはどんな作業が必要かを書き出します。 ここでは、「文字列置換」と「画像に埋め込まれた文字の置換」をする必要があるため、 この 2 つをふせんに書き出して**「平成 → 令和移行」の隣**に貼ります。 このようにして作業の階層構造を表現します。 また、「文字列置換」のタスクに「←」マークを付けます。
-「文字列置換」のタスクを完了するには、app/ ディレクトリ配下のファイルと resource/ ディレクトリ配下のファイルを編集する必要があります。 この 2 つのディレクトリをふせんに書き出して「文字列置換」のタスクの隣に貼ります。 そして、resource/ 配下から着手するため「resource/ 配下」のタスクに「←」を書きます。 さらに、「平成 → 令和移行」のタスクを完了するには、西暦と和暦を変換するプログラムを改修する必要が出てきました。 そこで「西暦 → 令和変換実装」のふせんを追加します。
-resource/ 配下の文字列置換が完了したため、「resource/ 配下」のふせんを破棄します。 そして、次のタスク「app/ 配下」に「←」を付けます。
-app/ 配下の作業も終わったため、「app/ 配下」のふせんを破棄します。 これによって文字列置換のタスクもすべて完了したため、「文字列置換」のふせんも破棄します。 次に行うタスクを選び、ここでは「西暦 → 令和変換実装」を行うことにするため「←」マークを付けます。...</p>
-  </section>
-  <footer class="entry-footer">
-</footer>
-  <a class="entry-link" aria-label="post link to 【アーカイブ】大規模な作業のときは「付箋スタック」を積む" href="https://b-hood.site/articles/sticky-stack/"></a>
-</article>
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      【アーカイブ】記事を Git で管理することにした
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>このサイトでは記事をデータベースに保存していたのですが、Git での管理に移行しました。 ここでは Markdown と Laravel で記事を Git 管理する方法をまとめます。
-Git と記事は相性が良い WordPress などの CMS には、下書き保存や承認フロー機能など、複数人で運営するための機能が実装されています。 また更新履歴を残せるため、誰がどこを書き換えたのか調査でき、以前のバージョンに戻すことも容易となっています。 このサイトはオリジナルのシステムで記事を管理していますが、このような機能を自力で実装するのはおおがかりです。
-そこで、記事の管理をデータベースからファイルシステムに移行し、記事ディレクトリを Git で管理することにしました。 記事の管理機能と Git は共通点が多くあります。 たとえば、CMS の機能は以下のように代替可能です。
- 更新履歴 → コミットログ 下書き保存 → ブランチを切って作業 承認フロー →（GitHub の）Pull Request  さらに、次のようなメリットもあります。
- 記事をテキストエディタで編集するため、CMS に編集機能を実装する必要がない。 記事データをファイルとして配置するため、textlint や Prettier などのツールを適用しやすい。  というわけで、CMS での実装を減らしつつ記事管理を高機能にできます。
-デメリットとしては、
- Git を非エンジニアに使わせるのは学習コストが高いかも。 ファイルから記事データを読み込むため、読み込み負荷が非常に大きい。  が挙げられます。 視覚的に Git を操作できるツールを導入したりして、Git 独特の操作の難しさを解消する必要がありそうですね。 読み込み負荷の問題については後述します。
-FrontMatter でメタデータを管理する 私は記事を Markdown で書いているのですが、記事のタイトルなどのメタデータはデータベースのカラムとして管理していました。 そこで、これらのメタデータも FrontMatter として記事本文の .md ファイルに埋め込みます。Markdown の先頭行に --- で囲んだ YAML データを定義できます。...</p>
-  </section>
-  <footer class="entry-footer">
-</footer>
-  <a class="entry-link" aria-label="post link to 【アーカイブ】記事を Git で管理することにした" href="https://b-hood.site/articles/git-article/"></a>
-</article>
-<article class="post-entry"> 
-
-  <header class="entry-header">
-    <h2>
-      【アーカイブ】面倒なファイル名は付けずに8文字IDで管理しよう
-    </h2>
-  </header>
-  <section class="entry-content">
-    <p>みなさんはこんな感じのファイル管理を見たことはないでしょうか？
- レイアウト_トップ画面.xlsx レイアウト_登録画面.xlsx レイアウト_トップ画面_20190101 提出版.xlsx レイアウト_登録画面_20190101 提出版.xlsx  バージョン管理システムが導入されていないオフィスにいたとき、作業用 PC の作業ディレクトリ内がこんな感じでした（笑）。 ちなみにいまはバージョン管理システムが導入されており、少し作業効率が改善されたのを覚えています。 とはいっても、バージョン管理システムもその人の使い方次第で ↑ のような状況になってしまうのですが……
-Web サイトやプレゼンテーション資料を作るときなど、画像素材をいろんなところから収集してくるときがあります。 すると、ファイル名は「猫の画像 1.jpg」「ScreenShot20190101-1.png」「12de944eff….jpg」など、ファイル名の規則性がバラバラで意味を成さなくなります。 そんなときに、ファイル名を8 文字 IDに一括で置き換えて統一する方法を紹介します。
-mvhash コマンドを作ってみた Linux や Mac をお使いであれば、以下のシェルスクリプトを導入することで 8 文字 ID へ変換できます。
-上記シェルスクリプトを mvhash というファイル名で /usr/localbin などのパスが通っているところに配置します。 そして、以下のようにすれば 8 文字 ID に変換されます。
-せっかくですので、mvhash コマンドの解説をしていきたいと思います！💪
-コマンド引数で while ループ $ mvhash *.jpg *.png のようにワイルドカードを使ったコマンドを実行するとき、bash がワイルドカードの展開をします。 よって、$ mvhash 猫の画像1.jpg ScreenShot20190101-1.png 82f23189….jpg というコマンドを入力したとみなされます。 mvhash シェルスクリプトでは、与えられたコマンドライン引数ごとにループ処理をさせます。 while 文のループ条件は「引数が 0 でないとき」とし、shift コマンドによって引数のシフトというものをします。 これによって第一引数 $1 が削除され、そのあとに続く引数が $1、$2、…となります。...</p>
-  </section>
-  <footer class="entry-footer">
-</footer>
-  <a class="entry-link" aria-label="post link to 【アーカイブ】面倒なファイル名は付けずに8文字IDで管理しよう" href="https://b-hood.site/articles/mvhash/"></a>
-</article>
-<footer class="page-footer">
-  <nav class="pagination">
-    <a class="prev" href="/">« Prev Page</a>
-  </nav>
-</footer>
-
-    </main><footer class="footer">
-    <span>&copy; 2020 <a href="https://b-hood.site/">hata6502 Tech Blog</a></span>
-    <span>&middot;</span>
-    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
-    <span>&middot;</span>
-    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
-</footer>
-<a href="#top" aria-label="go to top" title="Go to Top" accesskey="g">
-    <button class="top-link" id="top-link" type="button">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
-            <path d="M12 6H0l6-6z" /></svg>
-    </button>
-</a>
-
-
-
-<script>
-    window.onload = function () {
-        if (localStorage.getItem("menu-scroll-position")) {
-            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
-        }
-    }
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            var id = this.getAttribute("href").substr(1);
-            document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
-                behavior: "smooth"
-            });
-        });
-    });
-    var mybutton = document.getElementById("top-link");
-    window.onscroll = function () {
-        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
-            mybutton.style.visibility = "visible";
-            mybutton.style.opacity = "1";
-        } else {
-            mybutton.style.visibility = "hidden";
-            mybutton.style.opacity = "0";
-        }
-    };
-
-    function menu_on_scroll() {
-        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
-    }
-
-</script>
-<script>
-    document.getElementById("theme-toggle").addEventListener("click", () => {
-        if (document.body.className.includes("dark")) {
-            document.body.classList.remove('dark');
-            localStorage.setItem("pref-theme", 'light');
-        } else {
-            document.body.classList.add('dark');
-            localStorage.setItem("pref-theme", 'dark');
-        }
-    })
-
-</script>
-
-</body>
-
-</html>
+<!doctype html><html lang=ja dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>B-Hood Tech Blog</title><meta name=keywords content><meta name=description content><meta name=author content="Tomoyuki Hata"><link rel=canonical href=https://b-hood.site/><link href=https://b-hood.site/assets/css/stylesheet.min.08d6f2005b6ce4ed10207916c0411c66e66f2201e3f7a56e8fb2ccbc4a8b259c.css integrity="sha256-CNbyAFts5O0QIHkWwEEcZuZvIgHj96Vuj7LMvEqLJZw=" rel="preload stylesheet" as=style><link rel=icon href=https://b-hood.site/favicon.png><link rel=icon type=image/png sizes=16x16 href=https://b-hood.site/favicon-16x16.png><link rel=icon type=image/png sizes=32x32 href=https://b-hood.site/favicon-32x32.png><link rel=apple-touch-icon href=https://b-hood.site/favicon.png><link rel=mask-icon href=https://b-hood.site/favicon.png><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><meta name=generator content="Hugo 0.78.2"><link rel=alternate type=application/rss+xml href=https://b-hood.site/index.xml><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','G-LKJ5YTFF5L','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><meta property="og:title" content="B-Hood Tech Blog"><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="https://b-hood.site/"><meta property="og:image" content="https://b-hood.site/47"><meta property="og:updated_time" content="2020-11-21T22:19:40+09:00"><meta property="og:site_name" content="B-Hood Tech Blog"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://b-hood.site/47"><meta name=twitter:title content="B-Hood Tech Blog"><meta name=twitter:description content><script type=application/ld+json>{"@context":"https://schema.org","@type":"Organization","name":"B-Hood Tech Blog","url":"https://b-hood.site/","description":"","thumbnailUrl":"https://b-hood.site/favicon.png","sameAs":["https://twitter.com/hata6502","https://github.com/hata6502"]}</script></head><body class="list home" id=top><script>if(localStorage.getItem("pref-theme")==="dark"){document.body.classList.add('dark');}else if(localStorage.getItem("pref-theme")==="light"){document.body.classList.remove('dark')}else if(window.matchMedia('(prefers-color-scheme: dark)').matches){document.body.classList.add('dark');}</script><noscript><style type=text/css>.theme-toggle,.top-link{display:none}</style></noscript><header class=header><nav class=nav><div class=logo><a href=https://b-hood.site/ accesskey=h><img src=/favicon.png alt=logo aria-label=logo height=35>B-Hood Tech Blog</a>
+<span class=logo-switches><span class=theme-toggle><a id=theme-toggle accesskey=t><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></a></span></span></div><ul class=menu id=menu onscroll=menu_on_scroll()></ul></nav></header><main class=main><article class=post-entry><header class=entry-header><h2>【アーカイブ】「静的サイトジェネレータ」という言葉だけで静的サイトを作った話</h2></header><section class=entry-content><p>皆さんこんにちは。 私はつい最近静的サイトジェネレータという言葉を聞きました。 「静的」に興味を惹かれた私が、静的サイトジェネレータという言葉だけで静的サイトを作ってみた話をまとめます。 今回の記事は私の憶測が多いのでご注意ください（笑）
+なお、当サイトはこの記事の通りに Laravel & wget & nginx による静的サイトとなっています。 もしご興味があれば、GitHubを見ていただけると幸いです。
+静的サイトとは？ まず、静的サイトの意味から考える必要があります。 おそらくこれは静的なサイト、つまりリクエストに対して Web サーバのレスポンスコンテンツが変わらないということです。 ということは、HTML, CSS, 画像アセットなどの静的なファイルを提供するだけのサイトであれば広義の静的サイトに当てはまります。
+静的サイトのメリット・デメリット ただ html を提供するだけの静的サイトであれば、なんだかインターネット初期の ‘90 年代のように感じてしまいます。 そこで、静的サイトのメリットをまとめてみました。
+Web サーバが PHP などを実行することはないため、動的コンテンツによる脆弱性が存在しない。 すでにレスポンスコンテンツが用意されているため、高速である。 レンタルサーバなどでは PHP を実行できない場合も多く、静的サイトであればサーバに求める要件が低い。 次に、静的サイトのデメリットをまとめます。
+端末（スマートフォン、PC など）によってサーバレスポンスを変化させることは難しい。 REST API や検索機能などの提供は不可能。 静的サイトジェネレータとは？ 静的サイトの意味が定まったところで、次は静的サイトジェネレータについて考えます。 これは静的サイトを作る、つまり静的サイトを作る元データがあり、それを加工して静的コンテンツを作るツールと考えられます。 ということは PHP で動的コンテンツを作り、それを php コマンドで html 出力して Web サーバで公開すれば、 PHP は静的サイトジェネレータになるということです。 逆に、アクセスがあった時点で PHP を実行して html を出力するのであれば、PHP は動的サイトのエンジンやエグゼキュータと呼べるのでしょう。
+クローラは静的サイトジェネレータ？ 以上のことを踏まえると、どんな動的コンテンツでも、サーバからダウンロードしたときには静的コンテンツになっていることになります。 JavaScript による DOM 操作などは、サーバとしては静的であるとみなします。 よって、ローカルな開発環境で動的サイトのサーバを立ち上げ、それをクローラで html として取得すれば、 クローラは静的サイトジェネレータということになります。...</p></section><footer class=entry-footer>1 min&nbsp;·&nbsp;Tomoyuki Hata</footer><a class=entry-link aria-label="post link to 【アーカイブ】「静的サイトジェネレータ」という言葉だけで静的サイトを作った話" href=https://b-hood.site/articles/staticgen/></a></article><article class=post-entry><header class=entry-header><h2>【アーカイブ】【CI】git commit 時に自動整形 & コーディングチェックする</h2></header><section class=entry-content><p>皆さんこんにちは。 プログラミングやコーディングを続けていくうちに、過去に自分が書いたコードの意味が分からなくなったりしたことはないでしょうか？ 今回は、中〜大規模な開発をする際に重要な**サーバレスな継続的インテグレーション（CI）**について書きたいと思います。
+導入方法はこちら
+継続的インテグレーション（CI）とは WikiPedia継続的インテグレーション（CI）とは、ソフトウェア開発においてソースコードの品質や保守性を保ち、持続可能な開発を続けていくための方法です。 つまり、ほかの人が見ても理解しやすく、また自分が書いた古いコードでも処理内容が理解できるようにプログラミングしていくということですね。
+個人の趣味のスクリプトであれば CI を導入する必要はないかもしれません。 しかし、お仕事などでのチームでの開発では重要になると思います。 また GitHub で公開するものに対しても、CI を導入するとメリットが大きいと思います。
+ソースコードの属人性（その人にしか分からないような書き方）を解消するために、開発ルールを定めることがあります。 たとえば、コーディングスタイルを定義したり（Google C++ Style Guide など）、コードレビューをするなどです。 これらは整形ツールやコーディングチェック（lint）を使って自動化できます。
+サーバレスで CI を導入 CI を導入する方法として、CI サーバを立てる方法があります。 たとえば、GitHub では Travis CI を導入することで、git commit 時に自動で CI を実行してくれます。 さらに、CI の実行結果を GitHub のバッジ として公言でき、リポジトリの質を保証する 1 つの指標にできます。
+しかし、CI サービスは有料プランのものもあり（Public リポジトリは無料も）、特に社内開発ではコストになる場合があります。 そこで、CI をローカル環境に導入し、git commit 時に自動でコーディングチェックと自動整形をしたいと思います。
+pre_commit フックを使う Git には、コミット時などにスクリプトを実行するフック機能があります。 その 1 つに pre_commit というものがあり、これはコミットをする直前に発動します。 よって、pre_commit に CI のプログラムを記述することで、git commit したときにコーディングチェックや自動整形を実行できます。
+自動化ツール コーディングチェックや自動整形を行うコマンドラインツールです。
+clang-format　C/C++ の自動整形をします。 cpplint　C/C++ の静的コード解析をします。 Prettier　HTML, CSS, JavaScript, PHP, Markdown, Yaml などの自動整形をします。 ESLint　JavaScript の静的コード解析をします。 phpmd　PHP の静的コード解析をします。 pre_commit 例 私が開発するときに導入している Git フックは、このリポジトリで公開しています。 blue-hood/....</p></section><footer class=entry-footer>1 min&nbsp;·&nbsp;Tomoyuki Hata</footer><a class=entry-link aria-label="post link to 【アーカイブ】【CI】git commit 時に自動整形 & コーディングチェックする" href=https://b-hood.site/articles/pre_commit/></a></article><article class=post-entry><header class=entry-header><h2>【アーカイブ】【Git×Twitter】連携 &amp;amp; 通知してコミットの質を上げよう</h2></header><section class=entry-content><p>いつも私は Git のコミットメッセージを適当に済ませてしまうのですが、git push するとツイートされるしくみを導入したらコミットメッセージの質が格段に上がりました。
+導入前
+導入後
+（英語から日本語に変わっているのはさておき、）コミットメッセージの内容が具体的になりました。また、Twitter を意識してかちょっと感情的なところもちらほらありますね。このような Git と Twitter の連携をサーバレスで導入する方法を紹介します。
+インストール方法
+2019/03/30 gitwitter のレアケース対策をしました。
+Webhook は意外と不便 Git と Twitter の連携でメジャーと思われるのは、Webhook を利用する方法です。GitHub や Bitbucket には、リポジトリへの push イベントごとに POST リクエストを投げてくれる機能があります。それを別途 Web サーバで拾ってツイートします。いわゆるクラウドハブはこの機能を利用しているわけですね。
+しかし、クラウドハブを利用するには月額料金がかかったり、無料だとしても月ごとの使用回数に制限があったりします。また自前で Webhook を拾うには、サーバが必要なのはもちろん HTTPS 通信をするためのドメインと証明書なども必要になります。Git の push をツイートするためだけに Webhook を利用するのは、ちょっとオーバーな気がします。
+また、実際に私が Webhook を導入してみて思ったのは、ツイートするかを毎回制御できないため不便だということです。たとえば、タイポを修正するだけのささいな push に対してもツイートされてしまい、手動で無駄なツイートを消すということがありました。タイムラインを荒らしてしまったと思いますね。
+サーバレスで連携する そこで、Webhook を使わずクライアントで動かす連携アプリケーションを作ることにしました。これならサーバレスだしツイートするかも毎回決めることができます。ツイートする文章はシェルスクリプトで git log を呼び出したりして組み立てました。ツイートするには TwitterOAuth を使って Twitter REST API をたたく PHP スクリプトを書きました。使い方はこんな感じです。
+tweet コマンド GitHub: Hata6502/tweet
+コマンドラインからツイートします。標準入力から読み込む汎用的な作りにしたので、Git との連携以外にも応用できるかもしれません。
+(1) /usr/local/src などにダウンロードします。...</p></section><footer class=entry-footer>1 min&nbsp;·&nbsp;Tomoyuki Hata</footer><a class=entry-link aria-label="post link to 【アーカイブ】【Git×Twitter】連携 &amp;amp; 通知してコミットの質を上げよう" href=https://b-hood.site/articles/gitwitter/></a></article><article class=post-entry><header class=entry-header><h2>【アーカイブ】【jQuery不要】JS で章番号 & リンク付きの目次を自動生成する</h2></header><section class=entry-content><p>WordPress 製のサイトなどで見かける目次。 そのページの内容がリストとして一目で確認できるため、Web サイトにも大きな役割を果たします。 JavaScript で目次を自動生成する方法を紹介します。
+JavaScript で目次を作る 基本的に見出しは h1〜h6 でタグ付けされているかと思います。 これらのタグには見出しという情報だけでなく、見出しどうしの階層関係も表現されています。 よって、h1〜h6 タグは目次を作るのに最適な情報源と言えます。
+目次を置く場所に &lt;ol class="table-of-contents">&lt;/ol> を配置して、この要素の中に JavaScript で目次の情報を書き込んでいきます。
+上記が目次を自動生成する JavaScript の完成形になります。
+QuerySelectorAll で h1〜h6 タグを探す まずは .table-of-contents を設置した親要素から、h1〜h6 要素を探し出します。
+h1〜h6 タグを元に目次要素を生成 探し出した h1〜h6 タグが変数 heading に入ってループ処理されているとします。 まずは目次 1 行分に相当する li 要素を生成し、その中に a 要素と ol 要素を入れています。 a 要素には h1〜h6 のテキストを入れて、さらにアンカーリンクとして href 属性に #section-${table_of_contents_counter++} を入れています。 変数 table_of_contents_counter は 1、2、3…と増分していくので、生成されるアンカーリンクも #section-1、#section-2、…となります。 ol 要素は、見出しの階層構造を作るために後で必要となります。
+h1〜h6 タグにアンカーリンクも紐付け 生成したアンカーリンクを h1〜h6 タグの id に設定します。 これによって、目次の要素をクリックしたときにページ内ジャンプさせます。 さらに、必要であれば anchor-link クラスを付けて CSS でデザイン調整しましょう。...</p></section><footer class=entry-footer>1 min&nbsp;·&nbsp;Tomoyuki Hata</footer><a class=entry-link aria-label="post link to 【アーカイブ】【jQuery不要】JS で章番号 & リンク付きの目次を自動生成する" href=https://b-hood.site/articles/table-of-contents/></a></article><article class=post-entry><header class=entry-header><h2>【アーカイブ】【PHPMD 対応】husky &amp;amp; lint-staged で CI を実行する</h2></header><section class=entry-content><p>みなさんこんにちは、今回は husky と lint-staged を使って CI 環境をローカルに構築する方法を紹介したいと思います。
+継続的インテグレーション（CI）とは WikiPedia継続的インテグレーション（CI）とは、ソフトウェア開発においてソースコードの品質や保守性を保ち、持続可能な開発を続けていくための方法です。 つまり、ほかの人が見ても理解しやすく、また自分が書いた古いコードでも処理内容が理解できるようにプログラミングしていくということですね。
+個人の趣味のスクリプトであれば CI を導入する必要はないかもしれませんが、お仕事などでのチームでの開発では重要になると思います。 また GitHub で公開するものに対しても、CI を導入するとメリットが大きいと思います。
+ソースコードの属人性（その人にしか分からないような書き方）を解消するために、開発ルールを定めることがあります。 たとえば、コーディングスタイルを定義したり（Google C++ Style Guide など）、コードレビューをするなどです。 これらは整形ツールやコーディングチェック（lint）を使って自動化できます。
+サーバレスで CI を導入 CI を導入する方法として、CI サーバを立てる方法があります。 たとえば、GitHub では Travis CI を導入することで、git commit 時に自動で CI を実行してくれます。 さらに、CI の実行結果を GitHub のバッジ として公言でき、リポジトリの質を保証する 1 つの指標にできます。
+しかし、CI サービスは有料プランのものもあり（Public リポジトリは無料も）、特に社内開発ではコストになる場合があります。 そこで、CI をローカル環境に導入し、git commit 時に自動でコーディングチェックと自動整形をしたいと思います。
+huskey と lint-staged を使うメリット コミット時に CI スクリプトを実行するには pre-commit を自前で記述することも可能です。 しかし、ほかの人と共同開発する場合では手動で pre-commit および自動整形ツール（prettier や eslint）を導入する必要がありました。
+そこで、husky を使って pre-commit をフックし、lint-staged でコーディングチェックと自動整形を実行させたいと思います。 リポジトリ直下に npm で husky、lint-staged、prettier、eslint などをインストールすれば、以降は npm install だけで CI 環境が整います。...</p></section><footer class=entry-footer>1 min&nbsp;·&nbsp;Tomoyuki Hata</footer><a class=entry-link aria-label="post link to 【アーカイブ】【PHPMD 対応】husky &amp;amp; lint-staged で CI を実行する" href=https://b-hood.site/articles/husky/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=/>« 前のページ</a>
+<a class=next href=/page/3/>次のページ »</a></nav></footer></main><footer class=footer><span>&copy; 2020 <a href=https://b-hood.site/>B-Hood Tech Blog</a></span>
+<span>&#183;</span>
+<span>Powered by <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a></span>
+<span>&#183;</span>
+<span>Theme <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top" accesskey=g><button class=top-link id=top-link type=button><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg></button></a>
+<script>window.onload=function(){if(localStorage.getItem("menu-scroll-position")){document.getElementById('menu').scrollLeft=localStorage.getItem("menu-scroll-position");}}
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{anchor.addEventListener("click",function(e){e.preventDefault();var id=this.getAttribute("href").substr(1);document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({behavior:"smooth"});});});var mybutton=document.getElementById("top-link");window.onscroll=function(){if(document.body.scrollTop>800||document.documentElement.scrollTop>800){mybutton.style.visibility="visible";mybutton.style.opacity="1";}else{mybutton.style.visibility="hidden";mybutton.style.opacity="0";}};function menu_on_scroll(){localStorage.setItem("menu-scroll-position",document.getElementById('menu').scrollLeft);}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{if(document.body.className.includes("dark")){document.body.classList.remove('dark');localStorage.setItem("pref-theme",'light');}else{document.body.classList.add('dark');localStorage.setItem("pref-theme",'dark');}})</script></body></html>

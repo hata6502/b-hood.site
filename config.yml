@@ -1,0 +1,50 @@
+baseURL: https://b-hood.site/
+title: B-Hood Tech Blog
+defaultContentLanguage: ja
+paginate: 5
+publishDir: docs
+theme: hugo-PaperMod
+
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+googleAnalytics: G-LKJ5YTFF5L
+
+minify:
+  disableXML: true
+  minifyOutput: true
+
+params:
+  env: production
+  title: B-Hood Tech Blog
+  author: Tomoyuki Hata
+
+  images: "/favicon.png"
+
+  ShowReadingTime: true
+  ShowShareButtons: true
+  comments: false
+  defaultTheme: auto
+  disableThemeToggle: false
+  disableSpecial1stPost: false
+
+  assets:
+      favicon: /favicon.png
+      apple_touch_icon: /favicon.png
+      safari_pinned_tab: /favicon.png
+
+  label:
+      text: "B-Hood Tech Blog"
+      icon: /favicon.png
+      iconHeight: 35
+
+  homeInfoParams:
+    Title: Welcome to B-Hood Tech Blog 🐆
+
+  socialIcons:
+    - name: twitter
+      url: "https://twitter.com/hata6502"
+    - name: github
+      url: "https://github.com/hata6502"
