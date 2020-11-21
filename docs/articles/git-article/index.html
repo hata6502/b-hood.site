@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>記事を Git で管理することにした | hata6502 Tech Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="記事原稿を Git で管理するメリットや方法をまとめました。">
+    <meta name="generator" content="Hugo 0.78.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="記事を Git で管理することにした" />
+<meta property="og:description" content="記事原稿を Git で管理するメリットや方法をまとめました。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://b-hood.site/articles/git-article/" />
+
+<meta itemprop="name" content="記事を Git で管理することにした">
+<meta itemprop="description" content="記事原稿を Git で管理するメリットや方法をまとめました。">
+
+<meta itemprop="wordCount" content="134">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="記事を Git で管理することにした"/>
+<meta name="twitter:description" content="記事原稿を Git で管理するメリットや方法をまとめました。"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        hata6502 Tech Blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        ARTICLES
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://b-hood.site/articles/git-article/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://b-hood.site/articles/git-article/&amp;text=%e8%a8%98%e4%ba%8b%e3%82%92%20Git%20%e3%81%a7%e7%ae%a1%e7%90%86%e3%81%99%e3%82%8b%e3%81%93%e3%81%a8%e3%81%ab%e3%81%97%e3%81%9f" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://b-hood.site/articles/git-article/&amp;title=%e8%a8%98%e4%ba%8b%e3%82%92%20Git%20%e3%81%a7%e7%ae%a1%e7%90%86%e3%81%99%e3%82%8b%e3%81%93%e3%81%a8%e3%81%ab%e3%81%97%e3%81%9f" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">記事を Git で管理することにした</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="0001-01-01T00:00:00Z">January 1, 0001</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><!-- raw HTML omitted -->
+<p>このサイトでは記事をデータベースに保存していたのですが、Git での管理に移行しました。
+ここでは Markdown と Laravel で記事を Git 管理する方法をまとめます。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="git-と記事は相性が良い">Git と記事は相性が良い</h2>
+<p>WordPress などの CMS には、下書き保存や承認フロー機能など、複数人で運営するための機能が実装されています。
+また更新履歴を残せるため、誰がどこを書き換えたのか調査でき、以前のバージョンに戻すことも容易となっています。
+このサイトは<a href="/articles/staticgen/">オリジナルのシステム</a>で記事を管理していますが、このような機能を自力で実装するのはおおがかりです。</p>
+<p>そこで、記事の管理をデータベースからファイルシステムに移行し、記事ディレクトリを Git で管理することにしました。
+記事の管理機能と Git は共通点が多くあります。
+たとえば、CMS の機能は以下のように代替可能です。</p>
+<ul>
+<li>更新履歴 → コミットログ</li>
+<li>下書き保存 → ブランチを切って作業</li>
+<li>承認フロー →（GitHub の）Pull Request</li>
+</ul>
+<p>さらに、次のようなメリットもあります。</p>
+<ul>
+<li>記事をテキストエディタで編集するため、CMS に編集機能を実装する必要がない。</li>
+<li>記事データをファイルとして配置するため、<a href="https://textlint.github.io/">textlint</a> や <a href="https://prettier.io/">Prettier</a> などのツールを適用しやすい。</li>
+</ul>
+<p>というわけで、CMS での実装を減らしつつ記事管理を高機能にできます。</p>
+<p>デメリットとしては、</p>
+<ul>
+<li>Git を非エンジニアに使わせるのは学習コストが高いかも。</li>
+<li>ファイルから記事データを読み込むため、読み込み負荷が非常に大きい。</li>
+</ul>
+<p>が挙げられます。
+視覚的に Git を操作できるツールを導入したりして、Git 独特の操作の難しさを解消する必要がありそうですね。
+読み込み負荷の問題については後述します。</p>
+<h2 id="frontmatter-でメタデータを管理する">FrontMatter でメタデータを管理する</h2>
+<p>私は記事を Markdown で書いているのですが、記事のタイトルなどのメタデータはデータベースのカラムとして管理していました。
+そこで、これらのメタデータも <a href="https://jekyllrb.com/docs/front-matter/">FrontMatter</a> として記事本文の .md ファイルに埋め込みます。Markdown の先頭行に <code>---</code> で囲んだ YAML データを定義できます。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>記事の更新日時はファイルシステムを利用します。</p>
+<h2 id="laravel-での実装">Laravel での実装</h2>
+<p>まず、記事を管理する Git リポジトリを作成します。
+記事データの配置は次のディレクトリ構成にします。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>たとえば記事 ID <code>staticgen</code>、<code>trimrate</code> の記事を配置するには</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>とします。
+そして、Laravel のプロジェクトルートに記事の Git リポジトリをサブモジュールとして配置します。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>記事データを管理するクラスを <code>app/Article.php</code> として作成します。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="markdown-の解析">Markdown の解析</h3>
+<p>PHP にて Markdown の構文解析をし、HTML として出力するために <a href="https://github.com/cebe/markdown">cebe/markdown</a> を利用しました。
+また、YAML 形式の FrontMatter を解析するために <a href="https://github.com/hyn/frontmatter">hyn/frontmatter</a> を併用します。
+下記のプログラムによって、<code>$article['meta']</code> にメタデータが格納されます。
+<code>$article['html']</code> には本文の HTML が格納されます。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h3 id="記事一覧の取得">記事一覧の取得</h3>
+<p><code>getMetas()</code>では記事一覧を更新日順に取得しています。
+<code>glob()</code> を使って、記事ファイルをワイルドカードで一括取得します。
+得られたファイルパスの配列に対し、<code>filemtime()</code> で更新時刻の UNIX 時間を取得し、更新が新しい順にソートします。
+あとは、各記事ファイルごとに Markdown を解析してメタデータを取得するだけです。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="記事をキャッシュする">記事をキャッシュする</h2>
+<p>このプログラムは、サイトへのアクセスごとに記事ファイルを読み込んでいるため、サイトの速度などに影響がありそうです。
+しかし、<a href="/articles/staticgen/">静的サイト</a>の場合は問題ありません。（このサイトは静的です）
+動的サイトの場合は、記事データをキャッシュしたりする必要があります。</p>
+<p>記事リポジトリに CI を構築して、<a href="https://redis.io/">Redis</a> やデータベースに自動デプロイするとよいかもしれません。
+このプログラムを流用して、記事リポジトリを <a href="https://blog.katsubemakito.net/linux/ramdisk-tmpfs">RAM ディスク</a>に配置するなど対処法は割とあります。
+または、先日耳にした <a href="https://microcms.io/">microCMS</a> のように、記事データをクライアントサイドでダウンロードして表示するのもモダンなやり方だと思います。</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://b-hood.site/" >
+    &copy;  hata6502 Tech Blog 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>hata6502 Tech Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="">
+    <meta name="generator" content="Hugo 0.78.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+      <link href="/articles/index.xml" rel="alternate" type="application/rss+xml" title="hata6502 Tech Blog" />
+      <link href="/articles/index.xml" rel="feed" type="application/rss+xml" title="hata6502 Tech Blog" />
+      
+    
+    
+    <meta property="og:title" content="Articles" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://b-hood.site/articles/" />
+
+<meta itemprop="name" content="Articles">
+<meta itemprop="description" content="">
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Articles"/>
+<meta name="twitter:description" content=""/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+
+  <header>
+    <div class="pb3-m pb6-l bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        hata6502 Tech Blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+      <div class="tc-l pv3 ph3 ph4-ns">
+        <h1 class="f2 f-subheadline-l fw2 light-silver mb0 lh-title">
+          Articles
+        </h1>
+        
+      </div>
+    </div>
+  </header>
+
+
+    <main class="pb7" role="main">
+      
+  <article class="pa3 pa4-ns nested-copy-line-height nested-img">
+    <section class="cf ph3 ph5-l pv3 pv4-l f4 tc-l center measure-wide lh-copy mid-gray"></section>
+    <section class="flex-ns flex-wrap justify-around mt5">
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Articles</span>
+    <h1 class="f3 near-black">
+      <a href="https://b-hood.site/articles/analog-orgel/" class="link black dim">
+        マイコンを使わないアナログ式電子オルゴールを作った
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      皆さんこんにちは。 今回は、私が 1 年がかりで作った「アナログ式電子オルゴール」の紹介をしたいと思います。
+動作風景 ※音量小さいです。
+元ネタはピアノロール 私が中学生のころ、クラシックなミッキーマウスのアニメーションを見るのが好きだったのですが、そこにピアノロール が出ていました。これは、ピアノの演奏情報を時系列的に記録した紙媒体であり、穴が空いているところに対応する鍵盤が自動的に押されるしくみのようです。
+これをもとに、幅 40 mm の紙テープで演奏データを記録することにしました。 本家のピアノロールは、鍵盤 1 つずつに 1 ライン使うため非常に幅の広い紙テープが必要になります。 そこで、音階（ドレミファソラシドと#）を 4 ビット、オクターブを 3 ビット、ノートオン／オフを 1 ビットの合計 8 ビットで表現しています。
+回路図 画像形式と .CE3 形式で配布します。 .CE3 を BSch3V で開けば高解像で確認できるためお勧めします。 なお、パスコンなどのノイズ対策や電源の振動対策を行っておらず、自己責任にてお願いします。
+電源 15V の AC アダプタからレールスプリッタで ±7.5V 電源を生成、プッシュプルで大電流対応。 そのほか、NJM4580DD オペアンプの動作電圧を作ったり、デジタル用+5V を三端子レギュレータで作っています。
+ CE3 ファイル  紙テープ巻取回路 紙テープを一定の速度で巻き取ります。 モータの速度をフィードバックで制御していますが、なんと速度センサもまたモータ。 紙テープにローラーを当ててモータの軸を回し、微弱な起電圧を 300 倍に増幅します。 そして、半固定抵抗によって定めた基準電圧とコンパレータによって比較し、 紙テープを巻き取るモータをオン／オフします。 モータは激しいノイズ源になりそうですので、3V 電池を使って電源を隔離しています。
+ CE3 ファイル  紙テープ読取回路 黒を 1、白を 0 のデジタル信号として、8 ビット幅の紙テープをフォトリフレクタで読み取ります。 1 ビットはノートオン信号として、これが Hi のときに残りの 7 ビットを読み取るようにします。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Articles</span>
+    <h1 class="f3 near-black">
+      <a href="https://b-hood.site/articles/readable-code/" class="link black dim">
+        リーダブルコードが強迫観念になりつつあること
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      みなさんこんにちは 😁 今回は「リーダブルコード」に対する懐疑的な意見を述べたいと思います。
+10 年前の自分をコードレビュー まずは、私が 10 年前、中学生のころに作ったブロック崩しのプログラムを紹介したいと思います。 言語は HSP (Hot Soup Processor) というものでして、とても初心者向けの言語です。 BASIC に似た言語ともいえます。
+プログラムのファイル名は 本当のブロック崩し.hsp（笑） 当時ブロック崩しを作るのに一度挫折したため、ブロック崩し.hsp には違うプログラムが入っていました。 そして 2 回目でブロック崩しのプログラミングに成功したので、本当のブロック崩し.hsp と名付けたのです（笑笑）
+そのプログラムがこちらです。コードレビューしていきたいと思います。
+😂🤣😅🙄😥
+レビューしてたらきりが無さそうですが、ツッコミどころを頑張って 3 つに絞り込んでみました。
+ローマ字を使っている ところどころにローマ字があります。 たとえば、「shoki」は初期化処理のことです。 「oto1.wav」は効果音 1 の音声ファイルですね。 「atari」は、ボールとブロックが当たったときの処理のことです、まるでゲーム会社を彷彿させるネーミングです。
+もちろん、こんなネーミングはダメです。 ちゃんと英語を使いましょう、「brock.bmp」のように。 これはブロックの画像ファイルです、brock、block?…… まあ、中学生だし英語のスペルミスは許してね。
+変数名は 1 文字 プログラムを難読化させている大きな原因の 1 つですね。 変数名は m=0, c=0, w=1 のように 1 文字です。
+変数 x, y がボールの座標だと思うでしょう？ 実は、変数 a, b がボールの座標です。 それでは x=150 と初期化している変数 x は何に使用しているかというと……未使用です。 つまり、初期化しているのに一切使用していません（笑）
+そのほか、スコアを記憶する変数が c（s ではない）など、初期の BASIC っぽいですね。 確か BASIC は変数名 2 文字までという制約がありませんでしたっけ？
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Articles</span>
+    <h1 class="f3 near-black">
+      <a href="https://b-hood.site/articles/sticky-stack/" class="link black dim">
+        大規模な作業のときは「付箋スタック」を積む
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      皆さんこんにちは。 今回は番外的な記事として、私個人で編み出した仕事術ふせんスタックについて紹介したいと思います（笑） おもしろ半分で読んでいただけると幸いです。
+人間には把握の限界がある まず最初に、人間には把握の限界があることを前提とします。 というのは、人間のワーキングメモリはコンピュータのように数 GB あるわけではなく、たいてい数単語分しかないということです。 参考文献 によると、人間のワーキングメモリは 7±2 チャンクの範囲だと言われています。 仕事などで大規模な作業を行うのに対して、短期記憶の使用は避けるべきだと言えます。
+作業の影響は連鎖していく 当然のことではありますが、作業を行うとその影響を対応するために新しい作業が生まれていくことがあります。 たとえば、新しい元号へ対応するためにAというシステムを改修した場合、Aを利用しているシステムB、C、Dも改修が必要になり、さらに……という連鎖が発生します。 このとき、見通しが浅く「平成の 2 文字を令和に置き換えるだけ」程度に考えてしまうと、その作業量の大きさに気付くことができません。
+作業漏れを起こさないコンピュータの構造 これも当然ですが、コンピュータは指示された命令通りに漏れを起こすことなく作業を遂行しますね。 コンピュータが処理を漏れなく行う記憶構造として、**スタック**があります。 これはコンピュータが現在何の処理をしているか、この処理が終わったら次は何をするか、といったプログラムの実行ステータスを記憶するためにも使われています。 これに似たような方法を取り入れれば、機械的ながらも作業漏れを減らすことができるのではないでしょうか？
+ふせんスタック それではふせんスタックの方法を例をまじえながら紹介します。 まず、作業ステータスを記録するためにふせんを使います。 ふせんに今回のタスク例として「平成 → 令和移行」と書きます。 そして、これから行うタスク「平成 → 令和移行」に「←」マークを付けます。
+次に、「平成 → 令和移行」のタスクを完了するにはどんな作業が必要かを書き出します。 ここでは、「文字列置換」と「画像に埋め込まれた文字の置換」をする必要があるため、 この 2 つをふせんに書き出して**「平成 → 令和移行」の隣**に貼ります。 このようにして作業の階層構造を表現します。 また、「文字列置換」のタスクに「←」マークを付けます。
+「文字列置換」のタスクを完了するには、app/ ディレクトリ配下のファイルと resource/ ディレクトリ配下のファイルを編集する必要があります。 この 2 つのディレクトリをふせんに書き出して「文字列置換」のタスクの隣に貼ります。 そして、resource/ 配下から着手するため「resource/ 配下」のタスクに「←」を書きます。 さらに、「平成 → 令和移行」のタスクを完了するには、西暦と和暦を変換するプログラムを改修する必要が出てきました。 そこで「西暦 → 令和変換実装」のふせんを追加します。
+resource/ 配下の文字列置換が完了したため、「resource/ 配下」のふせんを破棄します。 そして、次のタスク「app/ 配下」に「←」を付けます。
+app/ 配下の作業も終わったため、「app/ 配下」のふせんを破棄します。 これによって文字列置換のタスクもすべて完了したため、「文字列置換」のふせんも破棄します。 次に行うタスクを選び、ここでは「西暦 → 令和変換実装」を行うことにするため「←」マークを付けます。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Articles</span>
+    <h1 class="f3 near-black">
+      <a href="https://b-hood.site/articles/git-article/" class="link black dim">
+        記事を Git で管理することにした
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      このサイトでは記事をデータベースに保存していたのですが、Git での管理に移行しました。 ここでは Markdown と Laravel で記事を Git 管理する方法をまとめます。
+Git と記事は相性が良い WordPress などの CMS には、下書き保存や承認フロー機能など、複数人で運営するための機能が実装されています。 また更新履歴を残せるため、誰がどこを書き換えたのか調査でき、以前のバージョンに戻すことも容易となっています。 このサイトはオリジナルのシステムで記事を管理していますが、このような機能を自力で実装するのはおおがかりです。
+そこで、記事の管理をデータベースからファイルシステムに移行し、記事ディレクトリを Git で管理することにしました。 記事の管理機能と Git は共通点が多くあります。 たとえば、CMS の機能は以下のように代替可能です。
+ 更新履歴 → コミットログ 下書き保存 → ブランチを切って作業 承認フロー →（GitHub の）Pull Request  さらに、次のようなメリットもあります。
+ 記事をテキストエディタで編集するため、CMS に編集機能を実装する必要がない。 記事データをファイルとして配置するため、textlint や Prettier などのツールを適用しやすい。  というわけで、CMS での実装を減らしつつ記事管理を高機能にできます。
+デメリットとしては、
+ Git を非エンジニアに使わせるのは学習コストが高いかも。 ファイルから記事データを読み込むため、読み込み負荷が非常に大きい。  が挙げられます。 視覚的に Git を操作できるツールを導入したりして、Git 独特の操作の難しさを解消する必要がありそうですね。 読み込み負荷の問題については後述します。
+FrontMatter でメタデータを管理する 私は記事を Markdown で書いているのですが、記事のタイトルなどのメタデータはデータベースのカラムとして管理していました。 そこで、これらのメタデータも FrontMatter として記事本文の .md ファイルに埋め込みます。Markdown の先頭行に --- で囲んだ YAML データを定義できます。
+    </div>
+  </div>
+</div>
+</div>
+      
+        <div class="relative w-100 w-30-l mb4 bg-white"><div class="relative w-100 mb4 bg-white nested-copy-line-height">
+  <div class="bg-white mb3 pa4 gray overflow-hidden">
+    <span class="f6 db">Articles</span>
+    <h1 class="f3 near-black">
+      <a href="https://b-hood.site/articles/mvhash/" class="link black dim">
+        面倒なファイル名は付けずに8文字IDで管理しよう
+      </a>
+    </h1>
+    <div class="nested-links f5 lh-copy nested-copy-line-height">
+      みなさんはこんな感じのファイル管理を見たことはないでしょうか？
+ レイアウト_トップ画面.xlsx レイアウト_登録画面.xlsx レイアウト_トップ画面_20190101 提出版.xlsx レイアウト_登録画面_20190101 提出版.xlsx  バージョン管理システムが導入されていないオフィスにいたとき、作業用 PC の作業ディレクトリ内がこんな感じでした（笑）。 ちなみにいまはバージョン管理システムが導入されており、少し作業効率が改善されたのを覚えています。 とはいっても、バージョン管理システムもその人の使い方次第で ↑ のような状況になってしまうのですが……
+Web サイトやプレゼンテーション資料を作るときなど、画像素材をいろんなところから収集してくるときがあります。 すると、ファイル名は「猫の画像 1.jpg」「ScreenShot20190101-1.png」「12de944eff….jpg」など、ファイル名の規則性がバラバラで意味を成さなくなります。 そんなときに、ファイル名を8 文字 IDに一括で置き換えて統一する方法を紹介します。
+mvhash コマンドを作ってみた Linux や Mac をお使いであれば、以下のシェルスクリプトを導入することで 8 文字 ID へ変換できます。
+上記シェルスクリプトを mvhash というファイル名で /usr/localbin などのパスが通っているところに配置します。 そして、以下のようにすれば 8 文字 ID に変換されます。
+せっかくですので、mvhash コマンドの解説をしていきたいと思います！💪
+コマンド引数で while ループ $ mvhash *.jpg *.png のようにワイルドカードを使ったコマンドを実行するとき、bash がワイルドカードの展開をします。 よって、$ mvhash 猫の画像1.jpg ScreenShot20190101-1.png 82f23189….jpg というコマンドを入力したとみなされます。 mvhash シェルスクリプトでは、与えられたコマンドライン引数ごとにループ処理をさせます。 while 文のループ条件は「引数が 0 でないとき」とし、shift コマンドによって引数のシフトというものをします。 これによって第一引数 $1 が削除され、そのあとに続く引数が $1、$2、…となります。
+    </div>
+  </div>
+</div>
+</div>
+      
+    </section>
+<ul class="pagination">
+  <li class="page-item">
+    <a href="/articles/" class="page-link" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/articles/" class="page-link" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a class="page-link" href="/articles/">1</a>
+  </li>
+  <li class="page-item active">
+    <a class="page-link" href="/articles/page/2/">2</a>
+  </li>
+  <li class="page-item disabled">
+    <a  class="page-link" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+  </li>
+  <li class="page-item">
+    <a href="/articles/page/2/" class="page-link" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+  </li>
+</ul>
+
+</article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://b-hood.site/" >
+    &copy;  hata6502 Tech Blog 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

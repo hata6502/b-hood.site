@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>シェルで lastmod changefreq 付きの sitemap.xml を作る | hata6502 Tech Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="Web サイトのクロールに大きな役割を持つ sitemap.xml を、シェルスクリプトで自動生成する方法を紹介します。">
+    <meta name="generator" content="Hugo 0.78.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="シェルで lastmod changefreq 付きの sitemap.xml を作る" />
+<meta property="og:description" content="Web サイトのクロールに大きな役割を持つ sitemap.xml を、シェルスクリプトで自動生成する方法を紹介します。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://b-hood.site/articles/sitemap/" />
+
+<meta itemprop="name" content="シェルで lastmod changefreq 付きの sitemap.xml を作る">
+<meta itemprop="description" content="Web サイトのクロールに大きな役割を持つ sitemap.xml を、シェルスクリプトで自動生成する方法を紹介します。">
+
+<meta itemprop="wordCount" content="345">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="シェルで lastmod changefreq 付きの sitemap.xml を作る"/>
+<meta name="twitter:description" content="Web サイトのクロールに大きな役割を持つ sitemap.xml を、シェルスクリプトで自動生成する方法を紹介します。"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        hata6502 Tech Blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        ARTICLES
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://b-hood.site/articles/sitemap/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://b-hood.site/articles/sitemap/&amp;text=%e3%82%b7%e3%82%a7%e3%83%ab%e3%81%a7%20lastmod%20changefreq%20%e4%bb%98%e3%81%8d%e3%81%ae%20sitemap.xml%20%e3%82%92%e4%bd%9c%e3%82%8b" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://b-hood.site/articles/sitemap/&amp;title=%e3%82%b7%e3%82%a7%e3%83%ab%e3%81%a7%20lastmod%20changefreq%20%e4%bb%98%e3%81%8d%e3%81%ae%20sitemap.xml%20%e3%82%92%e4%bd%9c%e3%82%8b" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">シェルで lastmod changefreq 付きの sitemap.xml を作る</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="0001-01-01T00:00:00Z">January 1, 0001</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><!-- raw HTML omitted -->
+<p>こんにちは、今回は内容の濃い記事が書けそうでワクワクしています😀　
+このサイトでは、PHP を使わず静的な html でコンテンツを配信しています。
+せっかく作っている Web サイト、この存在をクローラに気づかせるためには <strong>sitemap.xml</strong> の設置が重要となります。
+今回は、sitemap.xml を自動的かつ**こだわりをもって(?)**生成する方法を紹介します。</p>
+<p>このサイトの <a href="/sitemap.xml">sitemap.xml</a><!-- raw HTML omitted -->
+2019/05/04 　<strong>sitemap.xml を生成するコマンド</strong>を作りました！<a href="https://github.com/blue-hood/static-sitemap">GitHub</a></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="sitemapxml-の構造">sitemap.xml の構造</h2>
+<p>sitemap.xml は、そのサイトのサイトマップを表す xml ファイルです。
+一般的にドキュメントルートに設置して、robots.txt で sitemap.xml の場所を指定します。</p>
+<p>robots.txt の例</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>sitemap.xml はさらに別の xml ファイルに分割することもできるのですが、
+1 ファイルにすべてのページの情報を書き込むとするとこのような形式になります。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><code>url</code> タグで 1 ページ分の情報として列記していきます。
+<code>url</code> タグ内の情報を以下のようにまとめました。</p>
+<ul>
+<li>loc: ページの URL(必須）</li>
+<li>lastmod: ページの最終更新日時（任意）</li>
+<li>changefreq: ページの更新頻度（任意、hourly, daily, weekly, monthly, yearly など）</li>
+<li>(priority): そのページの重要度（任意、今回は省略）</li>
+</ul>
+<p>最低限の sitemap.xml を作るのであれば、<code>loc</code> だけを書いて簡易的に済ませることもできます。
+しかし、できれば <code>lastmod</code> と <code>changefreq</code> も書いてサイトの情報を詳しく伝えたいところです。
+ちなみに <code>priority</code> はページの重要度を 0.0〜1.0 の範囲内で指定できるのですが、<a href="https://www.suzukikenichi.com/blog/google-ignores-priority-but-uses-lastmod-in-sitemaps/">Google はこの値を無視</a>しているそうです。
+まあ、私としても <code>priority</code> は主観的であいまいなデータですし、あまりあてにならないかなと思います。
+もちろん全部のページを <code>priority=1.0</code> とかやっても意味がないですからね！</p>
+<p>sitemap.xml を手動で作成することもできるのですが、サイト更新のたびに修正するのも手間がかかります。
+そこで、シェルスクリプトを使って <code>loc</code> を書いていき、さらにこだわりとして <code>lastmod</code> と <code>changefreq</code> も書いてくれるプログラムを作りました。</p>
+<h2 id="lastmod-と-changefreq-生成のしくみ"><code>lastmod</code> と <code>changefreq</code> 生成のしくみ</h2>
+<p>まず、<code>lastmod</code> と <code>changefreq</code> を生成するには、現在のサイトコンテンツだけでなく、その<strong>1 つ前のバージョンのコンテンツ</strong>も必要になります。
+……たとえば、現在のサイトコンテンツが old ディレクトリ内に入っているとして、サイトを更新するときは <code>old</code> ディレクトリを <code>html</code> ディレクトリにコピーして作業するものとします。</p>
+<p>sitemap.xml を作成するときに、html ディレクトリ内の A.html と、old ディレクトリ内の A.html の比較をします。
+もしファイル間の差異があれば「そのページは更新した」と判断できます。
+そして、サイトを実際に更新したら、いまある old ディレクトリを削除して html ディレクトリが新たな old ディレクトリとなります。</p>
+<p>もし old/A.html と html/A.html が同じ内容であれば、old/A.html のタイムスタンプを html/A.html にコピーします。
+すると、A.html を更新しない限り、最終更新日時は old/A.html に保持され続けます。</p>
+<p><code>lastmod</code> は html/A.html のタイムスタンプをもとに生成するとして、<code>changefreq</code> は現在時刻と old/A.html の時間差から計算することにします。
+たとえば時間差が 1 時間以内であれば hourly、24 時間以内であれば daily、……となります。</p>
+<!-- raw HTML omitted -->
+<h2 id="とりあえず完成形">とりあえず完成形</h2>
+<p>今回は説明が難しくて長くなりそうですので、先に完成形のシェルスクリプトを貼らせてください 🙇 　
+ちなみにこのスクリプトは、<a href="https://github.com/blue-hood/apps/blob/master/crawl.sh">crawl.sh</a> としてこのサイトの運営にも組み込まれています。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>今回のプログラムは長めですね。
+順を追って解説していきたいと思います。</p>
+<h3 id="sitemapxml-登録リストの生成">sitemap.xml 登録リストの生成</h3>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>まずは sitemap.xml に登録する html ファイルを <code>find</code> コマンドで取得します。
+その後、sitemap.xml に登録しないファイルを、<a href="https://qiita.com/bsdhack/items/597eb7daee4a8b3276ba">bash の変数展開</a>で除去しています。
+今回の例では、404.html と 50x.html を除去しています。</p>
+<h3 id="sitemapxml-のヘッダ書き込み">sitemap.xml のヘッダ書き込み</h3>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p><a href="https://qiita.com/take4s5i/items/e207cee4fb04385a9952">bash のヒアドキュメント</a>で sitemap.xml のヘッダを書き込みます。
+注意点としては、<code>echo</code> コマンドではなく <code>cat</code> コマンドを使用しているところです。
+EOS で囲まれたヒアドキュメントは標準入力として扱われるため、<code>cat</code> コマンドで標準入力 → 標準出力に流してあげる必要があります。</p>
+<h3 id="各-html-ファイルのループ処理">各 html ファイルのループ処理</h3>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>変数 <code>sitemaps</code> に各 html ファイルのパスが入っていますので、これを <code>for</code> 文でループ処理します。
+パスの先頭は必ず html/ から始まるため、これを除去して変数 <code>page</code> に入れています。
+そして、新たに old/ を先頭に付けて、1 つ前のバージョンのパス <code>old</code> を作ります。
+また、sitemap.xml に登録するときは「index.html」を除去して URL を正規化することにします。</p>
+<h3 id="変更チェック">変更チェック</h3>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>html/ と old/ で html ファイルの変更があるかを判定します。
+まず、<code>if [ -e ${old} ];</code> によって old/ の html ファイルがあるかを判定します。
+ない場合は<strong>新規ページ</strong>とみなせるため、前回の更新日時 <code>prevmod</code> を 1970 年 1 月 1 日にセットします。
+プログラムでは <code>prevmod=0</code> としていますが、これは時間を <a href="https://ja.wikipedia.org/wiki/UNIX%E6%99%82%E9%96%93">UNIX 時間</a>で扱っているためです。</p>
+<p>old/ の html ファイルが存在する場合は、<code>diff</code> コマンドでファイル内容の変更チェックをします。
+変更がない場合は、old/ の html ファイルを html/ に移動（上書き）することで、古い更新日時を継承します。
+<code>prevmod</code> は、<code>date</code> コマンドで old/ の html ファイルから取得します。</p>
+<p>この処理での出力は、前回の更新日時 <code>prevmod</code> と、html/ にある html ファイルの更新日時です。</p>
+<h3 id="ltlocgt-の生成">&lt;loc&gt; の生成</h3>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>ドメイン名と html ファイルのパスをつなぎ合わせて loc タグを作ります。
+なお、sitemap.xml では &lt; や &gt; などの特殊文字をエンコードする必要があるため、<code>recode utf8..html</code> を挟んでいます。</p>
+<h3 id="ltchangefreqgt-の生成">&lt;changefreq&gt; の生成</h3>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>前述の処理で求めた <code>prevmod</code> をもとに、更新頻度 <code>changefreq</code> を求めます。
+まずは <code>date &amp;quot;+%s&amp;quot;</code> で現在の UNIX 時間を取得し、<code>prevmod</code> と引き算をすることで経過時間 <code>elapsed</code> を計算します。
+<code>elapsed</code> は秒単位となりますが、これが 60x60=3600 秒、つまり 1 時間以内であれば <code>changefreq=&amp;quot;hourly&amp;quot;</code> としています。
+同様に daily、weekly、monthly、yearly の判定を <code>if</code> 文で記述していますが、monthly の判定は 28 日としました。</p>
+<h3 id="ltlastmodgt-の生成">&lt;lastmod&gt; の生成</h3>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>html/ にある html ファイルから lastmod を求めますが、sitemap.xml には <a href="https://www.w3.org/TR/NOTE-datetime">W3C Datetime</a>
+という形式で書き込む必要があります。細かい時分秒で出力するにはタイムゾーンの情報も必要になります。</p>
+<h3 id="最後に-lturlgt-を書き込んで完成">最後に &lt;url&gt; を書き込んで完成</h3>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>頑張って作った <code>loc</code>, <code>changefreq</code>, <code>lastmod</code> を <code>url</code> タグにまとめて sitemap.xml に追記します。
+そして、各 html ファイルのループ処理後にフッタ <code>&lt;/urlset&gt;</code> を書き込めば完成です。</p>
+<h2 id="アルゴリズムでオリジナリティを出す">アルゴリズムでオリジナリティを出す</h2>
+<p>さらにこだわるとしたら、<code>priority</code> を計算するアルゴリズムを考えて実装するところでしょうか？
+これで、Google にもサイトの評価をしてもらえそうです。
+せっかく書いている記事、多くの人に見てもらいたいので 🌿</p>
+<p>2019/05/04 　 sitemap.xml を生成するスクリプトをコマンド化しました。<a href="https://github.com/blue-hood/static-sitemap">GitHub</a></p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://b-hood.site/" >
+    &copy;  hata6502 Tech Blog 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

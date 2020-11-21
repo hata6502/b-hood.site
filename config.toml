@@ -1,0 +1,5 @@
+baseURL = "https://b-hood.site/"
+languageCode = "ja-jp"
+publishDir = "docs"
+title = "hata6502 Tech Blog"
+theme = "ananke"

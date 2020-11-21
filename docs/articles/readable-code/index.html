@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="ja-jp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>リーダブルコードが強迫観念になりつつあること | hata6502 Tech Blog</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="description" content="本来メンテナンス性を保つために必要なリーダブルコードが、かえって負担になっている現状について。">
+    <meta name="generator" content="Hugo 0.78.2" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="/dist/css/app.4fc0b62e4b82c997bb0041217cd6b979.css" rel="stylesheet">
+    
+
+    
+
+    
+      
+
+    
+
+    
+    
+    <meta property="og:title" content="リーダブルコードが強迫観念になりつつあること" />
+<meta property="og:description" content="本来メンテナンス性を保つために必要なリーダブルコードが、かえって負担になっている現状について。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://b-hood.site/articles/readable-code/" />
+
+<meta itemprop="name" content="リーダブルコードが強迫観念になりつつあること">
+<meta itemprop="description" content="本来メンテナンス性を保つために必要なリーダブルコードが、かえって負担になっている現状について。">
+
+<meta itemprop="wordCount" content="187">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="リーダブルコードが強迫観念になりつつあること"/>
+<meta name="twitter:description" content="本来メンテナンス性を保つために必要なリーダブルコードが、かえって負担になっている現状について。"/>
+
+	
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-black">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="/" class="f3 fw2 hover-white no-underline white-90 dib">
+      
+        hata6502 Tech Blog
+      
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+    <header class="mt4 w-100">
+      <aside class="instapaper_ignoref b helvetica tracked">
+          
+        ARTICLES
+      </aside>
+      
+
+
+
+
+  <div id="sharing" class="mt3">
+
+    
+    <a href="https://www.facebook.com/sharer.php?u=https://b-hood.site/articles/readable-code/" class="facebook no-underline" aria-label="share on Facebook">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M28.765,50.32h6.744V33.998h4.499l0.596-5.624h-5.095  l0.007-2.816c0-1.466,0.14-2.253,2.244-2.253h2.812V17.68h-4.5c-5.405,0-7.307,2.729-7.307,7.317v3.377h-3.369v5.625h3.369V50.32z   M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;"/></svg>
+
+    </a>
+
+    
+    
+    <a href="https://twitter.com/share?url=https://b-hood.site/articles/readable-code/&amp;text=%e3%83%aa%e3%83%bc%e3%83%80%e3%83%96%e3%83%ab%e3%82%b3%e3%83%bc%e3%83%89%e3%81%8c%e5%bc%b7%e8%bf%ab%e8%a6%b3%e5%bf%b5%e3%81%ab%e3%81%aa%e3%82%8a%e3%81%a4%e3%81%a4%e3%81%82%e3%82%8b%e3%81%93%e3%81%a8" class="twitter no-underline" aria-label="share on Twitter">
+      <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+    </a>
+
+    
+    <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://b-hood.site/articles/readable-code/&amp;title=%e3%83%aa%e3%83%bc%e3%83%80%e3%83%96%e3%83%ab%e3%82%b3%e3%83%bc%e3%83%89%e3%81%8c%e5%bc%b7%e8%bf%ab%e8%a6%b3%e5%bf%b5%e3%81%ab%e3%81%aa%e3%82%8a%e3%81%a4%e3%81%a4%e3%81%82%e3%82%8b%e3%81%93%e3%81%a8" class="linkedin no-underline" aria-label="share on LinkedIn">
+      <svg  height="32px"  style="enable-background:new 0 0 65 65;" version="1.1" viewBox="0 0 65 65" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <path d="M50.837,48.137V36.425c0-6.275-3.35-9.195-7.816-9.195  c-3.604,0-5.219,1.983-6.119,3.374V27.71h-6.79c0.09,1.917,0,20.427,0,20.427h6.79V36.729c0-0.609,0.044-1.219,0.224-1.655  c0.49-1.22,1.607-2.483,3.482-2.483c2.458,0,3.44,1.873,3.44,4.618v10.929H50.837z M22.959,24.922c2.367,0,3.842-1.57,3.842-3.531  c-0.044-2.003-1.475-3.528-3.797-3.528s-3.841,1.524-3.841,3.528c0,1.961,1.474,3.531,3.753,3.531H22.959z M34,64  C17.432,64,4,50.568,4,34C4,17.431,17.432,4,34,4s30,13.431,30,30C64,50.568,50.568,64,34,64z M26.354,48.137V27.71h-6.789v20.427  H26.354z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+
+    </a>
+  </div>
+
+
+      <h1 class="f1 athelas mt3 mb1">リーダブルコードが強迫観念になりつつあること</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="0001-01-01T00:00:00Z">January 1, 0001</time>
+
+      
+      
+    </header>
+    <div class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><!-- raw HTML omitted -->
+<p>みなさんこんにちは 😁 　
+今回は「<!-- raw HTML omitted -->リーダブルコード<!-- raw HTML omitted -->」に対する懐疑的な意見を述べたいと思います。</p>
+<!-- raw HTML omitted -->
+<h2 id="10-年前の自分をコードレビュー">10 年前の自分をコードレビュー</h2>
+<p>まずは、私が 10 年前、<strong>中学生のころに作ったブロック崩し</strong>のプログラムを紹介したいと思います。
+言語は <a href="https://hsp.tv/make/hsp3.html">HSP (Hot Soup Processor)</a> というものでして、とても初心者向けの言語です。
+BASIC に似た言語ともいえます。</p>
+<p>プログラムのファイル名は <code>本当のブロック崩し.hsp</code>（笑）
+当時ブロック崩しを作るのに一度挫折したため、<code>ブロック崩し.hsp</code> には違うプログラムが入っていました。
+そして 2 回目でブロック崩しのプログラミングに成功したので、<code>本当のブロック崩し.hsp</code> と名付けたのです（笑笑）</p>
+<p>そのプログラムがこちらです。コードレビューしていきたいと思います。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>😂🤣😅🙄😥</p>
+<p>レビューしてたらきりが無さそうですが、ツッコミどころを頑張って 3 つに絞り込んでみました。</p>
+<h3 id="ローマ字を使っている">ローマ字を使っている</h3>
+<p>ところどころにローマ字があります。
+たとえば、「shoki」は初期化処理のことです。
+「oto1.wav」は効果音 1 の音声ファイルですね。
+「atari」は、ボールとブロックが当たったときの処理のことです、まるで<a href="https://ja.wikipedia.org/wiki/%E3%82%A2%E3%82%BF%E3%83%AA_(%E4%BC%81%E6%A5%AD)">ゲーム会社</a>を彷彿させるネーミングです。</p>
+<p>もちろん、こんなネーミングはダメです。
+ちゃんと英語を使いましょう、「brock.bmp」のように。
+これはブロックの画像ファイルです、brock、block?……
+まあ、中学生だし英語のスペルミスは許してね。</p>
+<h3 id="変数名は-1-文字">変数名は 1 文字</h3>
+<p>プログラムを難読化させている大きな原因の 1 つですね。
+変数名は <code>m=0, c=0, w=1</code> のように 1 文字です。</p>
+<p>変数 x, y がボールの座標だと思うでしょう？
+実は、変数 a, b がボールの座標です。
+それでは <code>x=150</code> と初期化している変数 x は何に使用しているかというと……未使用です。
+つまり、初期化しているのに一切使用していません（笑）</p>
+<p>そのほか、スコアを記憶する変数が c（s ではない）など、初期の BASIC っぽいですね。
+確か BASIC は変数名 2 文字までという制約がありませんでしたっけ？</p>
+<h3 id="怒涛のブロック処理">怒涛のブロック処理</h3>
+<p>そして極め付きは、<strong>ループを使わないブロックの処理</strong>です。
+画面上のブロック 80 個に対して、1 つ 1 つ丁寧にプログラムを記述しています。
+おそらく中学生の私はループ処理すら知らなかった、こんなころがあったんですね。
+限られた知識の中で強引にプログラムを書いたのは、若い力というものでしょうか。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>一応紹介すると、<code>o(0)</code> はブロックを消したフラグです。
+<code>if o(0)=0:pos 64,64:gsel 0:gmode 1,32,16,150:gcopy 1</code> によって、ブロックを消していなければ画面に描画しています。</p>
+<p><code>if b+8&gt;64: if 80&gt;b+8: if a+8&gt;64: if 96&gt;a+8</code> は、ボールとブロックの当たり判定です。
+当たっていたら <code>c=c+100</code> で 100 点加算し、<code>o(0)=1</code> でブロックを消して <code>goto *atari</code> によってボールのはね返しています。</p>
+<p>なお、↓ のプログラムではブロックをすべて消したことを if 文 80 連結（!?）で行い、ゲームクリアの処理を行っています。</p>
+<!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<h2 id="コードから今を考える">コードから今を考える</h2>
+<p>さて、私がなぜこのようなコードをみなさんに紹介したかというと……</p>
+<p>それは、最近<strong>このコードとは真逆の状況</strong>をよく見かけるからです。</p>
+<p>つまりプログラミング言語の進化はもちろん、プログラムを機能ごとに独立させて保守性を保つ<a href="https://ja.wikipedia.org/wiki/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9">マイクロサービス</a>
+など、コードをきれいに保つための技術が浸透しています。
+しかし、<strong>コードのきれいさを意識するあまり、それが負担となっている</strong>場面をときどき見かけることがあります。</p>
+<p>ブロック崩しのコードは、当時の私では手段を選べなかったために<strong>目的へ一直線</strong>であったことの現れでした。
+いま、いろんな手段を選べるようになった結果、<strong>一番良い手段を選ばなくてはならないという強迫概念</strong>に陥ることはないでしょうか？</p>
+<h3 id="本質的なコードレビューを阻害する">本質的なコードレビューを阻害する</h3>
+<p>コードはほかの人にとっても読みやすくあるべきですね。
+しかしそれを重視した結果、コードレビューが進まなくなる場面を見かけます。
+たとえばコードレビューをした結果、プログラムの動作上の問題は指摘されないが、コードスタイルに対する指摘ばかりが続いていたとします。
+このようなレビューでは、<a href="https://ja.wikipedia.org/wiki/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E4%BD%9C%E6%B3%95">コーディング規約</a>を定めれば解決ですね。
+逆にコーディング規約のない状態でのコードスタイルのレビューは、<strong>複数ある正解のうち 1 つだけしか正解として認められないようなもの</strong>です。</p>
+<h3 id="システムの寿命を無視する">システムの寿命を無視する</h3>
+<p>「エンジニアは、長期間の運用を想定したコーディングをしなければなりません」</p>
+<p>とてもそのとおりのように聞こえるでしょう？
+しかし、これは厳密には**偽 (false) **です。
+理由は簡単で、この命題が成り立たないシステムも存在するからです。
+（「いや、うちの組織では……」という条件はつけないことにします 😥）</p>
+<p>丁寧にコーディングすることによる恩恵は、その後のメンテナンスのときなどに得られますよね。
+そこで、そのシステムの<strong>改修頻度 × 期間</strong>という指標を想定してみるのはどうでしょうか？
+すると、システムの寿命を無視して過度に丁寧なコーディングをしていた箇所が見つかるかもしれません。</p>
+<h3 id="時間調整としてリファクタリングする">時間調整としてリファクタリングする</h3>
+<p>これはエンジニアとしての立場を利用したものですね。
+改修を続けていくために、いずれは<strong>技術的負債を解消するため</strong>にリファクタリングが必要になります。
+しかし、それに必要な工数や期間は非エンジニアには判断ができないため、エンジニアを大切にしてくれる組織では判断を任せてくれることがあります。</p>
+<p>これを、エンジニアの保身的な都合で調整することはとても悲しいことです。
+幸いにもエンジニアの作業進捗は、<a href="https://ja.wikipedia.org/wiki/%E3%83%90%E3%83%BC%E3%82%B8%E3%83%A7%E3%83%B3%E7%AE%A1%E7%90%86%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0">バージョン管理システム</a>のコミットとして可視化しやすいものだと思います。
+オープンでありたいですね。</p>
+<h2 id="---textlint-disable---リーダブルコード---textlint-enable---は-should-であり-must-ではない"><!-- raw HTML omitted -->リーダブルコード<!-- raw HTML omitted -->は should であり must ではない</h2>
+<p>このように、<!-- raw HTML omitted -->リーダブルコード<!-- raw HTML omitted -->は必ず守らなくてはならないというわけではありません。
+（組織の取り決めによるものは除きます）。
+コードの品質を維持する負担との兼ね合いを考えないと、<strong><!-- raw HTML omitted -->リーダブルコード<!-- raw HTML omitted -->が強迫観念になるかもしれません</strong>。</p>
+<h2 id="自動整形や-lint-を導入しよう">自動整形や lint を導入しよう</h2>
+<p>負担を抑えつつコードの品質を高めるには、<strong>自動整形ツール</strong>や<strong>静的コード解析</strong> (lint) を導入することをお勧めします。
+これらを一度導入すれば、以降はノンコストでコードスタイルを統一したり、潜在的なバグを発見したりできます。</p>
+<p>さらに、動作保証を客観的に示す場合などには、<strong>自動テスト</strong>のコードを書くことも有用ですね。
+このようなツールがオープンで公開されていることは、とても恩恵だと思います 🎉 　
+<a href="https://www.npmjs.com/package/husky">husky</a> を使った自動整形や lint については</p>
+<p><a href="/articles/husky/">【PHPMD 対応】husky &amp; lint-staged で CI を実行する</a></p>
+<p>にて紹介していますので、よろしければ参考にしてくださいね。</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6 instapaper_ignoref">
+      
+      
+      </div>
+    </div>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-black bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://b-hood.site/" >
+    &copy;  hata6502 Tech Blog 2020 
+  </a>
+    <div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>
