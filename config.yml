@@ -21,7 +21,8 @@ params:
   title: B-Hood Tech Blog
   author: Tomoyuki Hata
 
-  images: "/favicon.png"
+  images:
+    - /favicon.png
 
   ShowReadingTime: true
   ShowShareButtons: true
