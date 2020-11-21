@@ -1,5 +1,5 @@
 ---
-title: 【Git×Twitter】連携 &amp; 通知してコミットの質を上げよう
+title: 【アーカイブ】【Git×Twitter】連携 &amp; 通知してコミットの質を上げよう
 description: Git と Twitter の連携をサーバレスで導入する方法を紹介します。
 thumbnail: /storage/articles/images/dc698745.jpg
 ---

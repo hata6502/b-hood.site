@@ -4,6 +4,22 @@
   
   <url>
     <loc>https://b-hood.site/articles/</loc>
+    <lastmod>2020-11-21T22:19:40+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://b-hood.site/</loc>
+    <lastmod>2020-11-21T22:19:40+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://b-hood.site/articles/vscode-boolean-colorize/</loc>
+    <lastmod>2020-11-21T22:19:40+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://b-hood.site/articles/browserslist-config-google/</loc>
+    <lastmod>2020-11-04T00:00:00+09:00</lastmod>
   </url>
   
   <url>
@@ -11,7 +27,7 @@
   </url>
   
   <url>
-    <loc>https://b-hood.site/</loc>
+    <loc>https://b-hood.site/tags/</loc>
   </url>
   
   <url>
@@ -20,10 +36,6 @@
   
   <url>
     <loc>https://b-hood.site/articles/trimrate/</loc>
-  </url>
-  
-  <url>
-    <loc>https://b-hood.site/tags/</loc>
   </url>
   
   <url>

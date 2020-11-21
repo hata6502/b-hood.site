@@ -1,5 +1,5 @@
 ---
-title: How to make grid layout in Editor.js
+title: 【アーカイブ】How to make grid layout in Editor.js
 description: Use editor-js-grid to design layout more flexibly.
 ---
 

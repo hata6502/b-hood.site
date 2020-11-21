@@ -1,5 +1,5 @@
 ---
-title: 記事を Git で管理することにした
+title: 【アーカイブ】記事を Git で管理することにした
 description: 記事原稿を Git で管理するメリットや方法をまとめました。
 thumbnail: /storage/articles/images/ab5a24b3.png
 ---

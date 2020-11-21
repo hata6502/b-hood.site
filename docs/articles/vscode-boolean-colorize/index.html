@@ -5,12 +5,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name=" robots" content="noindex, nofollow">
-<title>【アーカイブ】ImageMagickで16:9トリミングを自動化 - hata6502 Tech Blog</title>
+<title>VSCode で true と false の色分け - hata6502 Tech Blog</title>
 
 <meta name="keywords" content="" />
-<meta name="description" content="画像編集のなかでも頻度が高いと思われる「16:9トリミング」を自動化し、作業効率アップを図る方法を紹介します。">
+<meta name="description" content="boolean の mapping を書くと true と false が見づらいため、 VSCode で true を緑、false を 赤 で表示して見やすくします。
+settings.json
+&#34;editor.tokenColorCustomizations&#34;: { &#34;textMateRules&#34;: [ { &#34;scope&#34;: &#34;constant.language.boolean.false&#34;, &#34;settings&#34;: { &#34;foreground&#34;: &#34;#D3569B&#34; } }, { &#34;scope&#34;: &#34;constant.language.boolean.true&#34;, &#34;settings&#34;: { &#34;foreground&#34;: &#34;#9BD356&#34; } }, ] } ">
 <meta name="author" content="">
-<link rel="canonical" href="https://b-hood.site/articles/trimrate/" />
+<link rel="canonical" href="https://b-hood.site/articles/vscode-boolean-colorize/" />
 <link href="https://b-hood.site/assets/css/stylesheet.min.08d6f2005b6ce4ed10207916c0411c66e66f2201e3f7a56e8fb2ccbc4a8b259c.css" integrity="sha256-CNbyAFts5O0QIHkWwEEcZuZvIgHj96Vuj7LMvEqLJZw=" rel="preload stylesheet"
     as="style">
 
@@ -87,70 +89,34 @@
 <article class="post-single">
   <header class="post-header">
     <h1 class="post-title">
-      【アーカイブ】ImageMagickで16:9トリミングを自動化
+      VSCode で true と false の色分け
     </h1>
-    <div class="post-meta">
+    <div class="post-meta">November 21, 2020
 
     </div>
   </header> 
 
   <div class="post-content">
-<!-- raw HTML omitted -->
-<p>皆さんは画像を SNS や自身のブログなどに投稿する際に加工したことはないでしょうか？
-Twitter では画像が自動的に 16:9 で表示されるため、あらかじめ 16:9 でトリミングしておくことでどのように表示されるかを調整できます。
-トリミング機能は Android 版にはありますが Web 版にはないため、PC からの画像投稿のときに少し面倒に感じたりします。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<h2 id="画像編集の自動化といえば-imagemagick">画像編集の自動化といえば ImageMagick<a hidden class="anchor" aria-hidden="true" href="#画像編集の自動化といえば-imagemagick">#</a></h2>
-<p>そこで GIMP などの画像編集ソフトが必要になりますが、私は ImageMagick を利用しています。
-画像の加工を自動で行うためのコマンドラインが用意されており、たとえば以下のようにすれば png ファイルを一括で余白トリミングできます。
-GIMP でいう「最小枠で切り抜き」機能ですね。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>画像サイズを指定しての切り抜きは ImageMagick の <code>crop</code> オプションを使います。
-座標 (<code>X</code>, <code>Y</code>) の位置で幅 <code>W</code> px、高さ <code>H</code> px のトリミングをするには以下のコマンドを打ちます。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>しかし、残念ながら比率（16:9 など）の指定によるトリミングには対応していません。
-そこで、比率指定によるトリミングのコマンドをシェルスクリプトで作りました。</p>
-<h2 id="trimrate-コマンドを作ってみた"><code>trimrate</code> コマンドを作ってみた<a hidden class="anchor" aria-hidden="true" href="#trimrate-コマンドを作ってみた">#</a></h2>
-<p>結論から言うと、比率指定によるトリミングコマンドを以下のように作りました。</p>
-<!-- raw HTML omitted -->
-<p>このシェルスクリプトを <code>trimrate</code> というファイル名で保存します。
-保存先は <code>/usr/local/bin</code> などのパスが通っているところが便利です。
-そして <code>chmod +x trimrate</code> で実行権限を与えて以下の構文でトリミングを行います。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>コマンドの動作的には、比率から切り抜きの幅高さを計算して ImageMagick の <code>crop</code> 機能を呼び出しているだけです。
-デフォルトだと画像の上部でトリミングするため、<code>-gravity center</code> オプションを加えて中央でトリミングしています。</p>
-<h2 id="for-文で一括処理する"><code>for</code> 文で一括処理する<a hidden class="anchor" aria-hidden="true" href="#for-文で一括処理する">#</a></h2>
-<p><code>trimrate</code> コマンドだけだと <code>mogrify</code> のように複数のファイルを一括処理できません。
-しかし、<code>bash</code> の <code>for</code> 文で画像ファイルごとに <code>trimrate</code> を実行して一括処理させることはできます。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p><code>16-9</code> という名前でディレクトリを作り、<code>ls *.jpg</code> と <code>for</code> 文で jpg ファイルのループ処理をしています。
-<code>identify</code> コマンドでトリミング前後の画像ファイルを確認すると、</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>このとおり 16:9 になっています。
-<code>display</code> コマンドで中身を確認すると、ちゃんと中央でのトリミングになっていました。</p>
-<p>トリミング前
-<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-<p>トリミング後
-<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-<h2 id="作業効率化で差をつけよう">作業効率化で差をつけよう<a hidden class="anchor" aria-hidden="true" href="#作業効率化で差をつけよう">#</a></h2>
-<p>デスクワークでは画像の編集もよくあることだと思いますが、コマンドによる作業効率化はあまり知られていないように感じます。
-ドキュメントであれば文字の置換など作業効率化のイメージがつきますが、画像になると人手でやるしかない、と思われる方も多いと思います。
-（私の前職ではまさかのペイントしか使えない環境だったので……）。
-ぜひ、画像においても作業効率化が普及することを願います。</p>
-
+<p>boolean の mapping を書くと true と false が見づらいため、
+VSCode で true を緑、false を 赤 で表示して見やすくします。</p>
+<p>settings.json</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json"><span style="color:#e6db74">&#34;editor.tokenColorCustomizations&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> {
+  <span style="color:#f92672">&#34;textMateRules&#34;</span>: [
+    {
+      <span style="color:#f92672">&#34;scope&#34;</span>: <span style="color:#e6db74">&#34;constant.language.boolean.false&#34;</span>,
+      <span style="color:#f92672">&#34;settings&#34;</span>: {
+        <span style="color:#f92672">&#34;foreground&#34;</span>: <span style="color:#e6db74">&#34;#D3569B&#34;</span>
+      }
+    },
+    {
+      <span style="color:#f92672">&#34;scope&#34;</span>: <span style="color:#e6db74">&#34;constant.language.boolean.true&#34;</span>,
+      <span style="color:#f92672">&#34;settings&#34;</span>: {
+        <span style="color:#f92672">&#34;foreground&#34;</span>: <span style="color:#e6db74">&#34;#9BD356&#34;</span>
+      }
+    },
+  ]
+}
+</code></pre></div>
 </div>
   <footer class="post-footer">
   </footer>

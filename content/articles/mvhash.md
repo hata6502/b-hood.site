@@ -1,5 +1,5 @@
 ---
-title: 面倒なファイル名は付けずに8文字IDで管理しよう
+title: 【アーカイブ】面倒なファイル名は付けずに8文字IDで管理しよう
 description: 特にファイル名をつける必要がないときは、自動で8文字IDに置き換えて管理しやすくする方法を紹介します。
 thumbnail: /storage/articles/images/7c38fe6d.jpg
 ---

@@ -1,5 +1,5 @@
 ---
-title: シェルで lastmod changefreq 付きの sitemap.xml を作る
+title: 【アーカイブ】シェルで lastmod changefreq 付きの sitemap.xml を作る
 description: Web サイトのクロールに大きな役割を持つ sitemap.xml を、シェルスクリプトで自動生成する方法を紹介します。
 thumbnail: /storage/articles/images/a92fe036.jpg
 ---

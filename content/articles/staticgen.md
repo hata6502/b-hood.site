@@ -1,5 +1,5 @@
 ---
-title: 「静的サイトジェネレータ」という言葉だけで静的サイトを作った話
+title: 【アーカイブ】「静的サイトジェネレータ」という言葉だけで静的サイトを作った話
 description: Laravel & wget & nginx を使って簡易的な静的サイトを作ってみました。
 thumbnail: /storage/articles/images/2dfe71f9.jpg
 ---

@@ -5,12 +5,13 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name=" robots" content="noindex, nofollow">
-<title>【アーカイブ】ImageMagickで16:9トリミングを自動化 - hata6502 Tech Blog</title>
+<title>browserslist-config-google でモダンブラウザ向け最適化をする - hata6502 Tech Blog</title>
 
 <meta name="keywords" content="" />
-<meta name="description" content="画像編集のなかでも頻度が高いと思われる「16:9トリミング」を自動化し、作業効率アップを図る方法を紹介します。">
+<meta name="description" content="browserslist のデフォルトは、IE 11 も含まれていてさすがにモダンじゃないなーと感じます。 個人的には Babel だけで自動的に IE 対応することは難しいと考えているため、 いっそのこと browserslist からレガシーブラウザを切り捨てます。
+$ browserslist &#34;defaults&#34; and_chr 85 and_ff 79 and_qq 10.4 and_uc 12.12 android 81 baidu 7.12 chrome 86 chrome 85 chrome 84 edge 86 edge 85 firefox 82 firefox 81 firefox 80 firefox 78 ie 11 ios_saf 14 ios_saf 13.4-13.7 ios_saf 13.3 ios_saf 12.2-12.4 kaios 2.5 op_mini all op_mob 59 opera 71 opera 70 safari 14 safari 13.1 samsung 12.">
 <meta name="author" content="">
-<link rel="canonical" href="https://b-hood.site/articles/trimrate/" />
+<link rel="canonical" href="https://b-hood.site/articles/browserslist-config-google/" />
 <link href="https://b-hood.site/assets/css/stylesheet.min.08d6f2005b6ce4ed10207916c0411c66e66f2201e3f7a56e8fb2ccbc4a8b259c.css" integrity="sha256-CNbyAFts5O0QIHkWwEEcZuZvIgHj96Vuj7LMvEqLJZw=" rel="preload stylesheet"
     as="style">
 
@@ -87,69 +88,68 @@
 <article class="post-single">
   <header class="post-header">
     <h1 class="post-title">
-      【アーカイブ】ImageMagickで16:9トリミングを自動化
+      browserslist-config-google でモダンブラウザ向け最適化をする
     </h1>
-    <div class="post-meta">
+    <div class="post-meta">November 4, 2020
 
     </div>
   </header> 
 
   <div class="post-content">
-<!-- raw HTML omitted -->
-<p>皆さんは画像を SNS や自身のブログなどに投稿する際に加工したことはないでしょうか？
-Twitter では画像が自動的に 16:9 で表示されるため、あらかじめ 16:9 でトリミングしておくことでどのように表示されるかを調整できます。
-トリミング機能は Android 版にはありますが Web 版にはないため、PC からの画像投稿のときに少し面倒に感じたりします。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<h2 id="画像編集の自動化といえば-imagemagick">画像編集の自動化といえば ImageMagick<a hidden class="anchor" aria-hidden="true" href="#画像編集の自動化といえば-imagemagick">#</a></h2>
-<p>そこで GIMP などの画像編集ソフトが必要になりますが、私は ImageMagick を利用しています。
-画像の加工を自動で行うためのコマンドラインが用意されており、たとえば以下のようにすれば png ファイルを一括で余白トリミングできます。
-GIMP でいう「最小枠で切り抜き」機能ですね。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>画像サイズを指定しての切り抜きは ImageMagick の <code>crop</code> オプションを使います。
-座標 (<code>X</code>, <code>Y</code>) の位置で幅 <code>W</code> px、高さ <code>H</code> px のトリミングをするには以下のコマンドを打ちます。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>しかし、残念ながら比率（16:9 など）の指定によるトリミングには対応していません。
-そこで、比率指定によるトリミングのコマンドをシェルスクリプトで作りました。</p>
-<h2 id="trimrate-コマンドを作ってみた"><code>trimrate</code> コマンドを作ってみた<a hidden class="anchor" aria-hidden="true" href="#trimrate-コマンドを作ってみた">#</a></h2>
-<p>結論から言うと、比率指定によるトリミングコマンドを以下のように作りました。</p>
-<!-- raw HTML omitted -->
-<p>このシェルスクリプトを <code>trimrate</code> というファイル名で保存します。
-保存先は <code>/usr/local/bin</code> などのパスが通っているところが便利です。
-そして <code>chmod +x trimrate</code> で実行権限を与えて以下の構文でトリミングを行います。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>コマンドの動作的には、比率から切り抜きの幅高さを計算して ImageMagick の <code>crop</code> 機能を呼び出しているだけです。
-デフォルトだと画像の上部でトリミングするため、<code>-gravity center</code> オプションを加えて中央でトリミングしています。</p>
-<h2 id="for-文で一括処理する"><code>for</code> 文で一括処理する<a hidden class="anchor" aria-hidden="true" href="#for-文で一括処理する">#</a></h2>
-<p><code>trimrate</code> コマンドだけだと <code>mogrify</code> のように複数のファイルを一括処理できません。
-しかし、<code>bash</code> の <code>for</code> 文で画像ファイルごとに <code>trimrate</code> を実行して一括処理させることはできます。</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p><code>16-9</code> という名前でディレクトリを作り、<code>ls *.jpg</code> と <code>for</code> 文で jpg ファイルのループ処理をしています。
-<code>identify</code> コマンドでトリミング前後の画像ファイルを確認すると、</p>
-<!-- raw HTML omitted -->
-<!-- raw HTML omitted -->
-<p>このとおり 16:9 になっています。
-<code>display</code> コマンドで中身を確認すると、ちゃんと中央でのトリミングになっていました。</p>
-<p>トリミング前
-<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-<p>トリミング後
-<!-- raw HTML omitted --></p>
-<!-- raw HTML omitted -->
-<h2 id="作業効率化で差をつけよう">作業効率化で差をつけよう<a hidden class="anchor" aria-hidden="true" href="#作業効率化で差をつけよう">#</a></h2>
-<p>デスクワークでは画像の編集もよくあることだと思いますが、コマンドによる作業効率化はあまり知られていないように感じます。
-ドキュメントであれば文字の置換など作業効率化のイメージがつきますが、画像になると人手でやるしかない、と思われる方も多いと思います。
-（私の前職ではまさかのペイントしか使えない環境だったので……）。
-ぜひ、画像においても作業効率化が普及することを願います。</p>
+<p>browserslist のデフォルトは、IE 11 も含まれていてさすがにモダンじゃないなーと感じます。
+個人的には Babel だけで自動的に IE 対応することは難しいと考えているため、
+いっそのこと browserslist からレガシーブラウザを切り捨てます。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ browserslist <span style="color:#e6db74">&#34;defaults&#34;</span>
+and_chr <span style="color:#ae81ff">85</span>
+and_ff <span style="color:#ae81ff">79</span>
+and_qq 10.4
+and_uc 12.12
+android <span style="color:#ae81ff">81</span>
+baidu 7.12
+chrome <span style="color:#ae81ff">86</span>
+chrome <span style="color:#ae81ff">85</span>
+chrome <span style="color:#ae81ff">84</span>
+edge <span style="color:#ae81ff">86</span>
+edge <span style="color:#ae81ff">85</span>
+firefox <span style="color:#ae81ff">82</span>
+firefox <span style="color:#ae81ff">81</span>
+firefox <span style="color:#ae81ff">80</span>
+firefox <span style="color:#ae81ff">78</span>
+ie <span style="color:#ae81ff">11</span>
+ios_saf <span style="color:#ae81ff">14</span>
+ios_saf 13.4-13.7
+ios_saf 13.3
+ios_saf 12.2-12.4
+kaios 2.5
+op_mini all
+op_mob <span style="color:#ae81ff">59</span>
+opera <span style="color:#ae81ff">71</span>
+opera <span style="color:#ae81ff">70</span>
+safari <span style="color:#ae81ff">14</span>
+safari 13.1
+samsung 12.0
+samsung 11.1-11.2
+</code></pre></div><h2 id="browserslist-config-google-を使う">browserslist-config-google を使う<a hidden class="anchor" aria-hidden="true" href="#browserslist-config-google-を使う">#</a></h2>
+<p>どれくらい人気があるのでしょう？
+<a href="https://www.npmjs.com/package/browserslist-config-google">https://www.npmjs.com/package/browserslist-config-google</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ browserslist <span style="color:#e6db74">&#34;extends browserslist-config-google/no-ie&#34;</span>
+and_chr <span style="color:#ae81ff">85</span>
+chrome <span style="color:#ae81ff">86</span>
+chrome <span style="color:#ae81ff">85</span>
+chrome <span style="color:#ae81ff">84</span>
+edge <span style="color:#ae81ff">86</span>
+edge <span style="color:#ae81ff">85</span>
+firefox <span style="color:#ae81ff">82</span>
+firefox <span style="color:#ae81ff">81</span>
+ios_saf <span style="color:#ae81ff">14</span>
+ios_saf 13.4-13.7
+ios_saf 13.3
+ios_saf 13.2
+ios_saf 13.0-13.1
+safari <span style="color:#ae81ff">14</span>
+safari 13.1
+safari <span style="color:#ae81ff">13</span>
+</code></pre></div><p>うん、モダンだ。</p>
 
 </div>
   <footer class="post-footer">

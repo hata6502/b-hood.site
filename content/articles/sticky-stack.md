@@ -1,5 +1,5 @@
 ---
-title: 大規模な作業のときは「付箋スタック」を積む
+title: 【アーカイブ】大規模な作業のときは「付箋スタック」を積む
 description: 仕事上での作業漏れをなくす「付箋スタック」を提案します。
 thumbnail: /storage/articles/images/770a5abf.jpg
 ---

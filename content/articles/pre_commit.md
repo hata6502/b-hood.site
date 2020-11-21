@@ -1,5 +1,5 @@
 ---
-title: 【CI】git commit 時に自動整形 & コーディングチェックする
+title: 【アーカイブ】【CI】git commit 時に自動整形 & コーディングチェックする
 description: 継続的インテグレーションをサーバーレスで実現する方法を紹介します。
 thumbnail: /storage/articles/images/2fa79dbd.jpg
 ---

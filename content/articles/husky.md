@@ -1,5 +1,5 @@
 ---
-title: 【PHPMD 対応】husky &amp; lint-staged で CI を実行する
+title: 【アーカイブ】【PHPMD 対応】husky &amp; lint-staged で CI を実行する
 description: CI をローカル環境に構築することで、サーバーレスでコードの品質を保つ方法を紹介します。
 thumbnail: /storage/articles/images/2fa79dbd.jpg
 ---

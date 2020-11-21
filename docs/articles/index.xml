@@ -5,9 +5,31 @@
     <link>https://b-hood.site/articles/</link>
     <description>Recent content in Articles on hata6502 Tech Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ja-jp</language><atom:link href="https://b-hood.site/articles/index.xml" rel="self" type="application/rss+xml" />
+    <language>ja-jp</language>
+    <lastBuildDate>Sat, 21 Nov 2020 22:19:40 +0900</lastBuildDate><atom:link href="https://b-hood.site/articles/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>How to make grid layout in Editor.js</title>
+      <title>VSCode で true と false の色分け</title>
+      <link>https://b-hood.site/articles/vscode-boolean-colorize/</link>
+      <pubDate>Sat, 21 Nov 2020 22:19:40 +0900</pubDate>
+      
+      <guid>https://b-hood.site/articles/vscode-boolean-colorize/</guid>
+      <description>boolean の mapping を書くと true と false が見づらいため、 VSCode で true を緑、false を 赤 で表示して見やすくします。
+settings.json
+&amp;#34;editor.tokenColorCustomizations&amp;#34;: { &amp;#34;textMateRules&amp;#34;: [ { &amp;#34;scope&amp;#34;: &amp;#34;constant.language.boolean.false&amp;#34;, &amp;#34;settings&amp;#34;: { &amp;#34;foreground&amp;#34;: &amp;#34;#D3569B&amp;#34; } }, { &amp;#34;scope&amp;#34;: &amp;#34;constant.language.boolean.true&amp;#34;, &amp;#34;settings&amp;#34;: { &amp;#34;foreground&amp;#34;: &amp;#34;#9BD356&amp;#34; } }, ] } </description>
+    </item>
+    
+    <item>
+      <title>browserslist-config-google でモダンブラウザ向け最適化をする</title>
+      <link>https://b-hood.site/articles/browserslist-config-google/</link>
+      <pubDate>Wed, 04 Nov 2020 00:00:00 +0900</pubDate>
+      
+      <guid>https://b-hood.site/articles/browserslist-config-google/</guid>
+      <description>browserslist のデフォルトは、IE 11 も含まれていてさすがにモダンじゃないなーと感じます。 個人的には Babel だけで自動的に IE 対応することは難しいと考えているため、 いっそのこと browserslist からレガシーブラウザを切り捨てます。
+$ browserslist &amp;#34;defaults&amp;#34; and_chr 85 and_ff 79 and_qq 10.4 and_uc 12.12 android 81 baidu 7.12 chrome 86 chrome 85 chrome 84 edge 86 edge 85 firefox 82 firefox 81 firefox 80 firefox 78 ie 11 ios_saf 14 ios_saf 13.4-13.7 ios_saf 13.3 ios_saf 12.2-12.4 kaios 2.5 op_mini all op_mob 59 opera 71 opera 70 safari 14 safari 13.1 samsung 12.</description>
+    </item>
+    
+    <item>
+      <title>【アーカイブ】How to make grid layout in Editor.js</title>
       <link>https://b-hood.site/articles/editor-js-grid/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -18,7 +40,7 @@ Therefore, I published a grid layout plugin for Editor.</description>
     </item>
     
     <item>
-      <title>ImageMagickで16:9トリミングを自動化</title>
+      <title>【アーカイブ】ImageMagickで16:9トリミングを自動化</title>
       <link>https://b-hood.site/articles/trimrate/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -34,7 +56,7 @@ for 文で一括処理する trimrate コマンドだけだと mogrify のよう
     </item>
     
     <item>
-      <title>webp 画像形式でファイルサイズが 92% 削減された</title>
+      <title>【アーカイブ】webp 画像形式でファイルサイズが 92% 削減された</title>
       <link>https://b-hood.site/articles/webp/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -49,7 +71,7 @@ Webp 形式に変換する というわけで、さっそく Web サイト中の
     </item>
     
     <item>
-      <title>「静的サイトジェネレータ」という言葉だけで静的サイトを作った話</title>
+      <title>【アーカイブ】「静的サイトジェネレータ」という言葉だけで静的サイトを作った話</title>
       <link>https://b-hood.site/articles/staticgen/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -64,7 +86,7 @@ Webp 形式に変換する というわけで、さっそく Web サイト中の
     </item>
     
     <item>
-      <title>【CI】git commit 時に自動整形 &amp; コーディングチェックする</title>
+      <title>【アーカイブ】【CI】git commit 時に自動整形 &amp; コーディングチェックする</title>
       <link>https://b-hood.site/articles/pre_commit/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -82,7 +104,7 @@ pre_commit フックを使う Git には、コミット時などにスクリプ�
     </item>
     
     <item>
-      <title>【Git×Twitter】連携 &amp;amp; 通知してコミットの質を上げよう</title>
+      <title>【アーカイブ】【Git×Twitter】連携 &amp;amp; 通知してコミットの質を上げよう</title>
       <link>https://b-hood.site/articles/gitwitter/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -103,7 +125,7 @@ tweet コマンド GitHub: Hata6502/tweet
     </item>
     
     <item>
-      <title>【jQuery不要】JS で章番号 &amp; リンク付きの目次を自動生成する</title>
+      <title>【アーカイブ】【jQuery不要】JS で章番号 &amp; リンク付きの目次を自動生成する</title>
       <link>https://b-hood.site/articles/table-of-contents/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -118,7 +140,7 @@ h1〜h6 タグにアンカーリンクも紐付け 生成したアンカーリ�
     </item>
     
     <item>
-      <title>【PHPMD 対応】husky &amp;amp; lint-staged で CI を実行する</title>
+      <title>【アーカイブ】【PHPMD 対応】husky &amp;amp; lint-staged で CI を実行する</title>
       <link>https://b-hood.site/articles/husky/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -134,7 +156,7 @@ huskey と lint-staged を使うメリット コミット時に CI スクリプ�
     </item>
     
     <item>
-      <title>ふせんプログラミング</title>
+      <title>【アーカイブ】ふせんプログラミング</title>
       <link>https://b-hood.site/articles/postit-program/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -144,7 +166,7 @@ huskey と lint-staged を使うメリット コミット時に CI スクリプ�
     </item>
     
     <item>
-      <title>シェルで lastmod changefreq 付きの sitemap.xml を作る</title>
+      <title>【アーカイブ】シェルで lastmod changefreq 付きの sitemap.xml を作る</title>
       <link>https://b-hood.site/articles/sitemap/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -159,7 +181,7 @@ url タグで 1 ページ分の情報として列記していきます。 url �
     </item>
     
     <item>
-      <title>マイコンを使わないアナログ式電子オルゴールを作った</title>
+      <title>【アーカイブ】マイコンを使わないアナログ式電子オルゴールを作った</title>
       <link>https://b-hood.site/articles/analog-orgel/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -175,7 +197,7 @@ url タグで 1 ページ分の情報として列記していきます。 url �
     </item>
     
     <item>
-      <title>リーダブルコードが強迫観念になりつつあること</title>
+      <title>【アーカイブ】リーダブルコードが強迫観念になりつつあること</title>
       <link>https://b-hood.site/articles/readable-code/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -194,7 +216,7 @@ url タグで 1 ページ分の情報として列記していきます。 url �
     </item>
     
     <item>
-      <title>大規模な作業のときは「付箋スタック」を積む</title>
+      <title>【アーカイブ】大規模な作業のときは「付箋スタック」を積む</title>
       <link>https://b-hood.site/articles/sticky-stack/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -211,7 +233,7 @@ app/ 配下の作業も終わったため、「app/ 配下」のふせんを破�
     </item>
     
     <item>
-      <title>記事を Git で管理することにした</title>
+      <title>【アーカイブ】記事を Git で管理することにした</title>
       <link>https://b-hood.site/articles/git-article/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -227,7 +249,7 @@ FrontMatter でメタデータを管理する 私は記事を Markdown で書い
     </item>
     
     <item>
-      <title>面倒なファイル名は付けずに8文字IDで管理しよう</title>
+      <title>【アーカイブ】面倒なファイル名は付けずに8文字IDで管理しよう</title>
       <link>https://b-hood.site/articles/mvhash/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       

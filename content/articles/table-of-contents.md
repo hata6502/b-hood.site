@@ -1,5 +1,5 @@
 ---
-title: 【jQuery不要】JS で章番号 & リンク付きの目次を自動生成する
+title: 【アーカイブ】【jQuery不要】JS で章番号 & リンク付きの目次を自動生成する
 description: 内容をひと目で確認できる目次を、JavaScript で自動生成してデザインを整える方法を紹介します。
 thumbnail: /storage/articles/images/5b213ef0.jpg
 ---
